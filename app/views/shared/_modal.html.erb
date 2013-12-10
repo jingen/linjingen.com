@@ -101,7 +101,7 @@
      </div>
      <div class="alert alert-danger" ng-show="signupError">
       <a class="close" ng-click="signupError = false">&times;</a>
-        <p><strong>Sorry! errors occurred!</strong></p>
+        <p><strong>Sorry! Errors occurred!</strong></p>
         <p ng-repeat="(item, msg) in signupErrorMsg">
           <span class="text-capitalize">{{item}} </span>{{msg[0]}}
         </p>
@@ -110,3 +110,57 @@
  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+<div class="modal fade" id="contact-modal" ng-controller="HomeController">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Contact Me</h3>
+      </div>
+      <div class="modal-body">
+         <form class="form-horizontal">
+
+          <div class="form-group">
+            <label for="inputName" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-7">
+              <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                 <input type="text" class="form-control" autofocus="autofocus" name="name" id="inputName" placeholder="Enter your name" ng-model="contact.name">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-7">
+              <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-inbox"></i></span>
+                 <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Enter your email" ng-model="contact.email">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputMsg" class="col-sm-3 control-label">Message</label>
+            <div class="col-sm-7">
+               <textarea class="form-control" name="message" id="inputMsg" placeholder="Enter your messages" ng-model="contact.message" cols="30" rows="10">
+               </textarea>
+           </div>
+         </div>
+
+
+       </form>
+     </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="sendMsg()">Send Message</button>
+     </div>
+
+      <div class="alert alert-danger" ng-show="sendMsgError" ng-cloak>
+      <a class="close" ng-click="sendMsgError = false">&times;</a>
+        <p><strong>Sorry! Errors occurred!</strong></p>
+     </div>
+  </div><!-- /.modal-content -->
+ </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

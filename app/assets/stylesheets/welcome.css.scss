@@ -9,9 +9,11 @@
   bottom: 150px;
 }
 .cursive{
-  font-family: cursive;
+  font-family: cursive !important;
 }
-
+.fantasy{
+  font-family: fantasy !important;
+}
 @media (max-width:1280px) { 
   #jingen-lin-landing .carousel-caption{
     bottom: 120px;
@@ -97,4 +99,39 @@
 
 .text-capitalize{
   text-transform: capitalize;
+}
+
+// aboutus
+.author-title{
+  margin: 0;
+}
+.author {
+ margin-left: 25px; 
+ p, li{
+  font-size: 20px ;
+ }
+}
+.emphasize{
+  font-weight: bold;
+}
+
+.scrollup{
+  width:65px;
+  height:68px;
+  opacity:0.5;
+  position:fixed;
+  bottom:95px;
+  right:50px;
+  display:none;
+  background: rgb(93,14,139);
+  color: white;
+  font-size: 17px;
+  padding: 9px;
+  text-align: center;
+  line-height: 1em;
+  cursor: pointer;
+}
+.scrollup:hover{
+  opacity: 0.8;
+  color: white;
 }

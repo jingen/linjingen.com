@@ -4,6 +4,28 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
       window.location.replace('/');
     });
   };
+
+  $scope.contact = {
+    name:    "",
+    email:   "",
+    message: ""
+  };
+
+  $scope.sendMsg = function(){
+    var contact = $scope.contact;
+    if(!contact.name || !contact.email || !contact.message){
+      $scope.sendMsgError = true;
+      return;
+    }
+    $http.post("send_message", {contact: $scope.contact})
+    .success(function(data, status){
+      $scope.sendMsgError = false;
+      $('#contact-modal').modal('hide');
+    })
+    .error(function(data, status) {
+      $scope.sendMsgError = true;
+    });;
+  };
 }]);
 
 app.controller('UserController', ['$scope', '$http', function($scope, $http){
