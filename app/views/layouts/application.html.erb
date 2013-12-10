@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="jl">
+<head>
+  <title>Jingen Lin | Web Developer | Software Engineer</title>
+  <%= render 'shared/meta'%>
+  <%= stylesheet_link_tag "application"%>
+  <%= content_for?(:mycss) ? yield(:mycss) : stylesheet_link_tag("welcome")%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div ng-controller="HomeController">
+<%= render 'shared/header'%>
+<%= yield %>
+<%= render 'shared/modal'%>
+</div>
+
+<%= javascript_include_tag "application"%>
+<%= content_for?(:myjs) ? yield(:myjs) : javascript_include_tag("welcome")%>
+</body>
+</html>

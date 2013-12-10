@@ -1,0 +1,100 @@
+.logo{
+  position: absolute;
+  top: 108px;
+  left: 133px; 
+  z-index: 10;
+}
+
+#jingen-lin-landing .carousel-caption{
+  bottom: 150px;
+}
+.cursive{
+  font-family: cursive;
+}
+
+@media (max-width:1280px) { 
+  #jingen-lin-landing .carousel-caption{
+    bottom: 120px;
+  }
+  h1{
+    font-size: 30px;
+  }
+}
+@media (max-width:1200px) { 
+  #jingen-lin-landing .carousel-caption{
+    bottom: 80px;
+    h1{
+      font-size: 25px;
+    }
+  }
+}
+@media (max-width:1050px) { 
+  .logo{
+    top: 100px;
+    left: 120px;
+    img {
+      width: 80%;
+    }
+  }
+  #jingen-lin-landing .carousel-caption{
+    bottom: 50px;
+    h1{
+      font-size: 19px;
+    }
+  }
+}
+@media (max-width:900px) { 
+  .logo{
+    top: 80px;
+    left: 110px;
+    img {
+      width: 60%;
+    }
+  }
+}
+@media (max-width:750px) { 
+  .logo{
+    top: 70px;
+    left: 90px;
+    img {
+      width: 50%;
+    }
+  }
+  #jingen-lin-landing .carousel-caption{
+    bottom: 30px;
+    h1{
+      font-size: 15px;
+    }
+  }
+
+}
+@media (max-width:600px){
+  .logo{
+    top: 70px;
+    left: 60px;
+    img {
+      width: 30%;
+    }
+  }
+  #jingen-lin-landing .carousel-caption{
+    bottom: 30px;
+    h1{
+      font-size: 12px;
+    }
+  }
+}
+@media (max-width:450px) { 
+
+  #jingen-lin-landing .carousel-caption{
+    display: none;
+  }
+}
+
+.welcome-title{
+  font-size: 43px;
+  margin-bottom: 20px;
+}
+
+.text-capitalize{
+  text-transform: capitalize;
+}
