@@ -1,35 +1,98 @@
+<%=stylesheet "user_profile"%>
+<%=javascript "user_profile"%>
 <div class="well well-large">
-  <div class="container">
+  <div class="container" ng-controller="UserProfile">
 
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Edit user profile</h2>
+    <hr>
+    <div class="row">
+      <div class="user-image col-sm-3">
+        <img ng-src="{{user.avatar}}" alt="avatar" ng-show="!imageChanging" ng-cloak>
+        <img src="/img/loading.gif" ng-show="imageChanging">
+        <div id="new_image">
+          <input type="file" name="image" ng-model="user.image" ng-file-select="onFileSelect($files)">
+        </div>
+      </div>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-      <%= devise_error_messages! %>
+      <form accept-charset="UTF-8" class="user-info col-sm-7 form-horizontal" >
 
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email, :autofocus => true %></div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+          <div class="col-sm-7">
+            <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+             <input type="email" class="form-control" autofocus="autofocus" name="email" id="inputEmail" placeholder="Email" ng-model="user.email">
+           </div>
+         </div>
+       </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
+       <div class="form-group">
+        <label for="inputPassword" class="col-sm-4 control-label">New password</label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="password" id="inputPassword" autocomplete="off" placeholder="New password" ng-model="user.password">
+          </div>
+          <span class="help-block">
+            <i>(leave blank if you don't want to change it)</i>
+          </span>
+        </div>
+      </div>
 
-      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, :autocomplete => "off" %></div>
+      <div class="form-group">
+        <label for="inputPassword2" class="col-sm-4 control-label">Re-enter password</label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="password" id="inputPassword2" placeholder="Re-enter password" ng-model="user.password_confirmation">
+          </div>
+          <span class="help-block">
+            <i>(repeat your password to avoid typos)</i>
+          </span>
+        </div>
+      </div>
 
-      <div><%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %></div>
+      <div class="form-group">
+      <label for="currentPassword" class="col-sm-4 control-label">Current password</label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="current_password" id="currentPassword" placeholder="Current password" ng-model="user.current_password">
+          </div>
+        <span class="help-block">
+          <i>(we need your current password to confirm your changes)</i>
+        </span>
+        </div>
+      </div>
 
-      <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password %></div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-profile" ng-click="update()">Update</button>
+      </div>
 
-      <div><%= f.submit "Update" %></div>
-    <% end %>
+      <div class="alert alert-danger" ng-show="updateError" ng-cloak>
+        <a class="close" ng-click="signupError = false">&times;</a>
+        <p><strong>Sorry! errors occurred!</strong></p>
+        <p ng-repeat="(item, msg) in updateErrorMsg">
+          <span class="text-capitalize">{{item}} </span>{{msg[0]}}
+        </p>
+      </div>
 
-    <h3>Cancel my account</h3>
+      <div class="alert alert-success" ng-show="updateSuccess" ng-cloak>
+        <p><strong>Update successfully!</strong></p>
+      </div>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-    <%= link_to "Back", :back %>
+    </form>
 
   </div>
+  <hr>
+  <div>
+
+    <form action="/users" class="user-info form-horizontal" method="post">
+      <input name="_method" type="hidden" value="delete">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <a class="btn btn-primary" href="/">Back</a>
+      <input class="btn btn-default" data-confirm="Are you sure?" type="submit" value="Cancel my account">
+    </form>
+  </div>
+</div>
 </div>

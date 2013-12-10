@@ -1,4 +1,4 @@
 //= require_self
-//= require home-controller
+//= require home_controller
 var app = angular.module('jl', []);
 $('.carousel').carousel({interval: 17666});

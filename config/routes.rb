@@ -1,4 +1,5 @@
 Linjingen::Application.routes.draw do
+  get "users/avatar"
   devise_for :users, :controllers => {:registrations => "registrations"} do
     get "users/sign_in" => "welcome#index"
   end
@@ -11,6 +12,7 @@ Linjingen::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get 'aboutme' => "welcome#about_me"
+  match 'avatar', to: 'users#avatar', via: [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

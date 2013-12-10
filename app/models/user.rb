@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Paperclip
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -23,6 +24,17 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
+
+  #added
+  has_mongoid_attached_file :avatar,
+                            :styles => { 
+                              :small => "50x50#",
+                              :medium => "200x200#"
+                            },
+                            :default_url => '/img/blank.png',
+                            :url => "/assets/avatar/:id/:style/:basename.:extension",
+                            :path => ":rails_root/public/assets/avatar/:id/:style/:basename.:extension"
+
 
   ## Confirmable
   # field :confirmation_token,   :type => String

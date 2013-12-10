@@ -31,3 +31,10 @@ nav.navbar {
   padding: 6px 16px !important;
   margin-top: 8px;
 }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.nav-avatar{
+  max-width: 20px;
+  max-height: 20px;
+}
