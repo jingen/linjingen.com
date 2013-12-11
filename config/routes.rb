@@ -1,7 +1,7 @@
 Linjingen::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"} do
     post "send_message" => "users#send_message"
-    get "users/sign_in" => "welcome#index"
+    # get "users/sign_in" => "welcome#index"
   end
   # devise_for :users do
   #   get "users/sign_in" => "welcome#index"
