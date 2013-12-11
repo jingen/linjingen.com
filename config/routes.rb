@@ -1,5 +1,5 @@
 Linjingen::Application.routes.draw do
-  devise_for :users, :controllers => {:registrations => "registrations"} do
+  devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"} do
     post "send_message" => "users#send_message"
     # get "users/sign_in" => "welcome#index"
   end
