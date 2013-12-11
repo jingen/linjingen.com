@@ -58,8 +58,7 @@ gem 'therubyracer'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk'
 gem "crocodoc"
-
-# gem 
+gem 'omniauth-facebook'
 
 group :development do
   gem 'hirb'
