@@ -5,12 +5,12 @@ var app = angular.module('jl', ["angularFileUpload"]);
 
 app.controller("UserProfile", ["$scope", "$http", "$upload", "$timeout", function($scope, $http, $upload, $timeout){
   $scope.user = {
-    email: $('#userEmail').text(),
+    email: $('#userEmail').val(),
     password: "",
     password_confirmation: "",
     current_password: ""
   };
-  $http.get("avatar").success(function(data){
+  $http.get("/avatar").success(function(data){
     $scope.user.avatar = data.avatar;
   });
 
