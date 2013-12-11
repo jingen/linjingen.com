@@ -28,8 +28,8 @@ class User
   #added
   has_mongoid_attached_file :avatar,
                             :styles => { 
-                              :small => "50x50#",
-                              :medium => "200x200#"
+                              :small => "50x50^",
+                              :medium => "200x200^"
                             },
                             :default_url => '/img/blank.png',
                             :url => "/assets/avatar/:id/:style/:basename.:extension",

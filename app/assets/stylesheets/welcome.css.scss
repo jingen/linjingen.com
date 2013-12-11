@@ -3,6 +3,18 @@
   top: 108px;
   left: 133px; 
   z-index: 10;
+  img{
+    width: 200px;
+  }
+}
+
+#jingen-lin-landing{
+  .landing-img{
+    width: 100%;
+  }
+  h1{
+    margin-left: 45px;
+  }
 }
 
 #jingen-lin-landing .carousel-caption{
@@ -14,7 +26,7 @@
 .fantasy{
   font-family: fantasy !important;
 }
-@media (max-width:1280px) { 
+@media (max-width:1380px) { 
   #jingen-lin-landing .carousel-caption{
     bottom: 120px;
   }
