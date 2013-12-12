@@ -2,9 +2,9 @@
 <%if !user_signed_in?%>
   <div class="jumbotron">
     <div class="container">
-      <h2 class="welcome-title cursive">Welcome to "Ur App zone"!</h2>
+      <h2 class="welcome-title cursive">Welcome to "Ur App Zone"!</h2>
       <p>Get an account for better experience. It’s free and always will be.</p>
-      <p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup-modal">Sign up now &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup-modal">Sign up now &raquo;</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook"><img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook"></a></p>
     </div>
   </div>
 <%-end%>
