@@ -51,19 +51,20 @@
           </span>
         </div>
       </div>
-
-      <div class="form-group">
-      <label for="currentPassword" class="col-sm-4 control-label">Current password</label>
-        <div class="col-sm-7">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" name="current_password" id="currentPassword" placeholder="Current password" ng-model="user.current_password">
+      <%-if current_user.encrypted_password.present? %>
+        <div class="form-group">
+        <label for="currentPassword" class="col-sm-4 control-label">Current password</label>
+          <div class="col-sm-7">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input type="password" class="form-control" name="current_password" id="currentPassword" placeholder="Current password" ng-model="user.current_password">
+            </div>
+          <span class="help-block">
+            <i>(we need your current password to confirm your changes)</i>
+          </span>
           </div>
-        <span class="help-block">
-          <i>(we need your current password to confirm your changes)</i>
-        </span>
         </div>
-      </div>
+      <%end%>
 
       <div class="form-group">
         <button class="btn btn-primary btn-lg btn-profile" ng-click="update()">Update</button>
@@ -93,7 +94,7 @@
     </form>
     <hr>
     <p class="well muted">
-      Got any suggestions? Let me know <a class="muted cursive" href="mailto:jingen.lin.jl@gmail.com">@Jingen Lin</a>
+      Got any suggestions? Let us know <a class="muted cursive" href="mailto:urappzone@gmail.com">@Ur App Zone</a>
     </p>
   </div>
 </div>

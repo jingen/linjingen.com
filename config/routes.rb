@@ -1,11 +1,10 @@
 Linjingen::Application.routes.draw do
-  devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"} do
+  devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
+  devise_scope :user do
     post "send_message" => "users#send_message"
     # get "users/sign_in" => "welcome#index"
   end
-  # devise_for :users do
-  #   get "users/sign_in" => "welcome#index"
-  # end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
