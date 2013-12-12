@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="jl">
 <head>
-  <title>Ur App Zone by Jingen Lin | Experienced Software Engineer / Web Developer</title>
+  <title>Ur App Zone - Makes your life easier</title>
   <%= render 'shared/meta'%>
   <%= stylesheet_link_tag "application"%>
   <%= content_for?(:mycss) ? yield(:mycss) : stylesheet_link_tag("app_welcome")%>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div ng-controller="HomeController">
 <%= render 'shared/header'%>
 <%= yield %>
