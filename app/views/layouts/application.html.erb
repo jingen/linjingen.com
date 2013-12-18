@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="jl">
 <head>
-  <title>Ur App Zone - Makes your life easier</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Ur App Zone - Makes your life easier"%></title>
+  <%= content_for?(:meta) ? yield(:meta) : ""%>
   <%= render 'shared/meta'%>
   <%= stylesheet_link_tag "application"%>
   <%= content_for?(:mycss) ? yield(:mycss) : stylesheet_link_tag("app_welcome")%>

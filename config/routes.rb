@@ -2,7 +2,6 @@ Linjingen::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
   devise_scope :user do
     post "send_message" => "users#send_message"
-    # get "users/sign_in" => "welcome#index"
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +9,9 @@ Linjingen::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get 'aboutus' => "welcome#about_me"
   get 'aboutme' => "welcome#about_me"
+  get 'jingenlin' => "welcome#about_me"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
