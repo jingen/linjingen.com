@@ -13,6 +13,9 @@ Linjingen::Application.routes.draw do
   get 'aboutme' => "welcome#about_me"
   get 'jingenlin' => "welcome#about_me"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
+
+  get "spellchecker" => "words#index"
+  post "wordcheck" => "words#check"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
