@@ -59,6 +59,7 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk'
 gem "crocodoc"
 gem 'omniauth-facebook'
+gem 'delayed_job_mongoid'
 
 group :development do
   gem 'hirb'
