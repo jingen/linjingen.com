@@ -1,0 +1,30 @@
+
+.image-tab{
+  margin-top: 50px;
+}
+
+.image-url-form{
+  margin-top: 35px;
+  border: solid 1px gray;
+  padding: 51px 25px 30px;
+  background: #d8ebfe;
+}
+
+.image-url-label{
+  margin-top: 8px !important;
+}
+
+// #image-preview .modal-dialog
+// {
+//   width: auto;/* your width */
+// }
+// .img-responsive {
+//  display: block;
+//  height: auto;
+//  max-width: 100%;
+// }
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

@@ -100,3 +100,6 @@ def after_sign_in_path_for(resource)
   "#/dashboard"
 end
 
+rails g uploader image
+rails g model image
+rails g controller images

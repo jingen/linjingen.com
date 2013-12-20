@@ -15,7 +15,10 @@ Linjingen::Application.routes.draw do
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
   get "spellchecker" => "words#index"
-  post "wordcheck" => "words#check"
+  post "word_check" => "words#check"
+
+  get "imageresizer" => "images#index"
+  post "image_resize" => "images#create"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
