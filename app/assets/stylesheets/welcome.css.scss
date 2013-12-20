@@ -139,7 +139,13 @@
   bottom:95px;
   right:50px;
   display:none;
-  background: rgb(93,14,139);
+  background-image: url(/img/icons/scroll_to_top.jpg) ;  
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: white;
   font-size: 17px;
   padding: 9px;
@@ -148,7 +154,7 @@
   cursor: pointer;
 }
 .scrollup:hover{
-  opacity: 0.8;
+  opacity: 0.9;
   color: white;
 }
 

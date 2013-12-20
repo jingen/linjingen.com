@@ -14,13 +14,15 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
   $scope.sendMsg = function(){
     var contact = $scope.contact;
     if(!contact.name || !contact.email || !contact.message){
+      console.log(contact);
       $scope.sendMsgError = true;
       return;
+    }else{
+      $('#contact-modal').modal('hide');
     }
     $http.post("send_message", {contact: $scope.contact})
     .success(function(data, status){
       $scope.sendMsgError = false;
-      $('#contact-modal').modal('hide');
     })
     .error(function(data, status) {
       $scope.sendMsgError = true;
