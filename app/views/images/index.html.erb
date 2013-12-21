@@ -5,117 +5,155 @@
 <meta name="description" content="Online Image Resizer| Jingen Lin is an excellent Software Engineer, Web Application Developer, Computer Scientist, holds an master degree in Computer Science from New York University, Courant Institute"> 
 <%end%>
 <div class="app-title text-left">
-  <h2 class="fantasy">Online Image Resizer</h3>
-  <h4 class="text-muted">Enter URL Or Upload an Image > Specify the dimensions and the constraints > Click "Resize" Button</h4>
+  <h2 class="fantasy image-title">Online Image Resizer</h3>
+  <span class="text-muted">Enter URL Or Upload an Image > Specify the dimensions and the constraints > Click "Resize" Button</span>
 </div>
 
 <div ng-controller="ImageResize">
 
-<div class="container image-tab">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#input-url" data-toggle="tab">Enter URL</a></li>
-    <li><a href="#upload-image" data-toggle="tab">Upload an image</a></li>
-  </ul>
+  <div class="container image-tab">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#upload-image" data-toggle="tab" ng-click="clearURL()">Upload an image</a></li>
+      <li><a href="#input-url" data-toggle="tab" ng-click="clearUpload()">Enter URL</a></li>
+    </ul>
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="input-url">
-      <form class="form-horizontal image-url-form" role="form">
-        <div class="form-group">
-          <label class="col-sm-2 control-label image-url-label" for="image-url">Image URL:</label>
-          <div class="col-sm-8">
-            <div class="input-group input-group-lg">
-             <span class="input-group-addon">@</span>
-              <input type="url" class="form-control" id="image-url" placeholder="http://www.example.com/image.jpg" ng-model="image.remote_image_url">
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="upload-image">
+        <form class="form-horizontal image-upload-form" role="form">
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 fileinput fileinput-new" data-provides="fileinput">
+              <div class="input-group input-group-lg">
+
+                <div class="form-control uneditable-input" data-trigger="fileinput">
+                  <i class="glyphicon glyphicon-file fileinput-exists"></i> 
+                  <span class="fileinput-filename"></span>
+                </div>
+                <span class="input-group-addon btn btn-default btn-file">
+                  <span class="fileinput-new">Browse</span>
+                  <span class="fileinput-exists">Change</span>
+                  <input class="upload-control" type="file" ng-file-select="onFileSelect($files)">
+                </span>
+                <a class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+              </div>
             </div>
           </div>
-        </div>
-        <br>
-       
-      </form>
+        </form>
+      </div>
+
+      <div class="tab-pane" id="input-url">
+        <form class="form-horizontal image-url-form" role="form">
+          <div class="form-group">
+            <label class="col-sm-2 control-label image-url-label" for="image-url">Image URL:</label>
+            <div class="col-sm-8">
+              <div class="input-group input-group-lg">
+               <span class="input-group-addon">@</span>
+                <input type="url" class="form-control" id="image-url" placeholder="http://www.example.com/image.jpg" ng-change="checkReady()" ng-model="image.remote_image_url">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div class="tab-pane" id="upload-image">
-      <h1>upload</h1>
-    <div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Desired Dimensions:</div>
+    <div class="panel-body">
 
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="image-width" class="col-sm-2 control-label">Width:</label>
+          <div class="col-sm-2">
+            <div class="input-group">
+              <input type="text" class="form-control" id="image-width" placeholder="width" ng-change="widthChange()" ng-model="image.width">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+
+          <div class="col-sm-2 alert alert-warning warning" ng-hide="widthBadge">*Digits only</div>
+          <div class="col-sm-2 div-badge" ng-show="widthBadge" ng-cloak>
+            <span class="badge badge-success" ng-show="widthOk" ng-hide="!widthOk"><i class="glyphicon glyphicon-ok white"></i></span>
+            <span class="badge badge-danger" ng-show="!widthOk" ng-hide="widthOk"><i class="glyphicon glyphicon-remove white"></i></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="image-height" class="col-sm-2 control-label">Height:</label>
+          <div class="col-sm-2">
+            <div class="input-group">
+              <input type="text" class="form-control" id="image-height" placeholder="height" ng-change="heightChange()" ng-model="image.height">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+
+          <div class="col-sm-2 alert alert-warning warning" ng-hide="heightBadge">*Digits only</div>
+          <div class="col-sm-2 div-badge" ng-show="heightBadge" ng-cloak>
+            <span class="badge badge-success" ng-show="heightOk" ng-hide="!heightOk"><i class="glyphicon glyphicon-ok white"></i></span>
+            <span class="badge badge-danger" ng-show="!heightOk" ng-hide="heightOk"><i class="glyphicon glyphicon-remove white"></i></span>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="image-scale" class="col-sm-2 control-label">Scale:</label>
+          <div class="col-sm-2">
+            <div class="input-group">
+              <input type="text" class="form-control" id="image-scale" placeholder="scale" ng-change="scaleChange()" ng-model="image.scale">
+              <span class="input-group-addon">%</span>
+            </div>
+          </div>
+          <div class="col-sm-2 alert alert-warning warning" ng-hide="scaleBadge">*Digits only</div>
+          <div class="col-sm-2 div-badge" ng-show="scaleBadge" ng-cloak>
+            <span class="badge badge-success" ng-show="scaleOk" ng-hide="!scaleOk"><i class="glyphicon glyphicon-ok white"></i></span>
+            <span class="badge badge-danger" ng-show="!scaleOk" ng-hide="scaleOk"><i class="glyphicon glyphicon-remove white"></i></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="image-constraint" class="col-sm-2 control-label">Constraint:</label>
+          <div class="col-sm-10">
+            <div class="radio iamge_resize_method">
+              <label>
+                <input type="radio" name="resize_method" id="radioFree" value="free" ng-model="image.resize_method" checked>
+                No constraint.
+              </label>
+            </div>
+
+            <div class="radio iamge_resize_method">
+              <label>
+                <input type="radio" name="resize_method" id="radioFit" value="fit" ng-model="image.resize_method" >
+                Fit and retain the original aspect ratio. Not to crop the image. 
+              </label>
+            </div>
+            <div class="radio iamge_resize_method">
+              <label>
+                <input type="radio" name="resize_method" id="radioFill" value="fill" ng-model="image.resize_method" >
+                Fit and retain the original aspect ratio. If necessary, crop the image.
+              </label>
+            </div> 
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default btn-lg" id="resetBtn" ng-click="reset()">Reset</button>
+            <button type="submit" class="btn btn-primary btn-lg"  disabled id="resizeBtn" ng-click="resize()">Resize</button>
+          </div>
+        </div>
+      </form> 
+
+
+      <div class="alert alert-info process-info" ng-show="ready || processing" ng-cloak>
+        <span ng-show="ready">Ready</span>
+        <img src="/img/loading.gif" alt="loading" ng-show="processing">
+      </div>
+
+      <div class="well process-info" ng-cloak ng-show="!!resized_image_url">
+        <a class="btn btn-primary" data-toggle="modal" data-target="#image-preview">Preview</a>
+        <a ng-href="{{resized_image_url}}" class="btn btn-success" download>Download</a>
+      </div>
+    </div>
   </div>
-</div>
-<hr>    
-<div class="panel panel-primary">
-  <div class="panel-heading">Desired Dimensions:</div>
-  <div class="panel-body">
-   <form class="form-horizontal" role="form">
-    <div class="form-group">
-      <label for="image-width" class="col-sm-2 control-label">Width:</label>
-      <div class="col-sm-2">
-        <div class="input-group">
-          <input type="text" class="form-control" id="image-width" placeholder="width" ng-model="image.width">
-          <span class="input-group-addon">px</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="image-height" class="col-sm-2 control-label">Height:</label>
-      <div class="col-sm-2">
-        <div class="input-group">
-          <input type="text" class="form-control" id="image-height" placeholder="height" ng-model="image.height">
-          <span class="input-group-addon">px</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="image-scale" class="col-sm-2 control-label">Scale:</label>
-      <div class="col-sm-2">
-        <div class="input-group">
-          <input type="text" class="form-control" id="image-scale" placeholder="scale" ng-model="image.scale">
-          <span class="input-group-addon">%</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="image-constraint" class="col-sm-2 control-label">Constraint:</label>
-      <div class="col-sm-10">
-        <div class="radio iamge_resize_method">
-          <label>
-          <input type="radio" name="resize_method" id="image-constraint" value="free" ng-model="image.resize_method" checked>
-          No constraint.
-          </label>
-        </div>
-
-        <div class="radio iamge_resize_method">
-          <label>
-          <input type="radio" name="resize_method" id="image-constraint" value="fit" ng-model="image.resize_method" >
-          Fit and retain the original aspect ratio. Not to crop the image. 
-         </label>
-        </div>
-        <div class="radio iamge_resize_method">
-          <label>
-          <input type="radio" name="resize_method" id="image-constraint" value="fill" ng-model="image.resize_method" >
-          Fit and retain the original aspect ratio. If necessary, crop the image.
-          </label>
-        </div> 
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary" ng-click="resize()">Resize</button>
-      </div>
-    </div>
-
-  </form> 
-
-  </div>
-</div>
-
-<div class="well well-lg">
-<!-- <div class="well well-lg" ng-cloak ng-show="!!resized_image_url"> -->
-  <a class="btn btn-primary" data-toggle="modal" data-target="#image-preview">Preview</a>
-  <a ng-href="{{resized_image_url}}" class="btn btn-success" download>Download</a>
-</div>
 
 </div>
 
@@ -126,12 +164,11 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Image preview</h4>
       </div>
-      <div class="modal-body">
-        <img ng-src="{{resized_image_url}}" alt="Resized Image">
+      <div class="modal-body text-center">
+        <img class="text-center" ng-src="{{resized_image_url}}" alt="Resized Image">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

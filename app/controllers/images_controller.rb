@@ -7,7 +7,6 @@ class ImagesController < ApplicationController
   # deal with the image resizing request and send back the results
   def create 
     @image ||= Image.new(image_params)
-    @image.remote_image_url = params[:remote_image_url] unless params[:remote_image_url].nil?
     if @image.save
       render json: {"url" => @image.image_url(:resized), "success" => true}
     else
@@ -19,6 +18,10 @@ class ImagesController < ApplicationController
 
   # construct image arguments
   def image_params
-    params.require(:image).permit(:width, :height, :scale, :resize_method, :remote_image_url)
+    if params[:file].present?
+      params[:image] = JSON.parse(params[:image])
+      params[:image][:image] = params[:file]
+    end
+    params.require(:image).permit(:width, :height, :scale, :resize_method, :remote_image_url, :image)
   end
 end

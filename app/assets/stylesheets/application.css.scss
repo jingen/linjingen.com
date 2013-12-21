@@ -16,7 +16,10 @@ $navbar-inverse-link-color: rgb(205, 191, 227);
 @import "bootstrap";
 @import "extend-bootstrap";
 @import "bootstrap/theme";
-body { padding-top: 52px; }
+body { 
+  padding-top: 52px; 
+  padding-bottom: 52px; 
+}
 nav.navbar {
   padding-right: 30px;
 }
@@ -41,4 +44,19 @@ nav.navbar {
 
 .app-title{
   padding-left: 25px;
+}
+.cursive{
+  font-family: cursive !important;
+}
+.fantasy{
+  font-family: fantasy !important;
+}
+.white, .white a {
+  color: #fff;
+}
+.badge-success{
+  background-color: #5cb85c;
+}
+.badge-danger{
+  background-color: #d9534f;
 }

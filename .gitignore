@@ -19,3 +19,4 @@
 /vendor/bundle
 /config/application.yml
 /public/uploads/
+/public/.DS_Store

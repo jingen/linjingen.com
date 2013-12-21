@@ -1,10 +1,10 @@
 
 .image-tab{
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
-.image-url-form{
-  margin-top: 35px;
+.image-url-form, .image-upload-form{
+  margin-top: 15px;
   border: solid 1px gray;
   padding: 51px 25px 30px;
   background: #d8ebfe;
@@ -14,17 +14,58 @@
   margin-top: 8px !important;
 }
 
-// #image-preview .modal-dialog
-// {
-//   width: auto;/* your width */
-// }
-// .img-responsive {
-//  display: block;
-//  height: auto;
-//  max-width: 100%;
-// }
-img {
-  display: block;
+.modal img {
   height: auto;
   max-width: 100%;
+}
+
+.warning{
+  margin: 0;
+  padding: 5px 20px;
+  width: 127px;
+}
+
+.div-badge{
+  padding-top: 6px;
+}
+
+.tab-pane .uneditable-input{
+  white-space: nowrap;
+}
+
+.image-upload-form{
+  .input-group{
+    width: 100%;
+  }
+  .uneditable-input{
+    display: inline-block;
+    width: 60%;
+  }
+  span, a{
+    display: inline-table;
+  }
+  .upload-control{
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-upload-form .uneditable-input{
+    width: 100%;
+    overflow: scroll;
+    display: block;
+  } 
+}
+
+.process-info{
+  margin: 8px 0;
+  padding: 8px 25px;
+}
+.image-title{
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.panel{
+  margin-top: 8px;
 }
