@@ -12,7 +12,7 @@ app.controller('SpellCheck', ['$scope', '$http', function($scope, $http){
       words: $scope.words
     };
     $http({
-      url: 'word_check',
+      url: '/word_check',
       method: 'post',
       data: words,
       responseType: "json"

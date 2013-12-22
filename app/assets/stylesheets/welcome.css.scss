@@ -152,4 +152,25 @@
   color: white;
 }
 
-//user
+.thumbnail img{
+  width: 200px;
+  height: 200px;
+  margin-top: 9px;
+}
+
+.app-title{
+  background-image: url(/img/landing/ribbon.png);
+  background-repeat: no-repeat;
+  width: 154px;
+  height: 43px;
+  color: #fff;
+  text-align: left;
+  padding: 5px 23px;
+  position: relative;
+  left: -27px;
+  top: 10px;
+}
+.doc-library{
+  padding-left: 15px;
+  padding-right: 15px;
+}

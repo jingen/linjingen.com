@@ -14,10 +14,14 @@ Linjingen::Application.routes.draw do
   get 'jingenlin' => "welcome#about_me"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
-  get "spellchecker" => "words#index"
+  get "doc_library" => "documents#index"
+
+  get "video_library" => "videos#index"
+
+  get "spell_checker" => "words#index"
   post "word_check" => "words#check"
 
-  get "imageresizer" => "images#index"
+  get "image_resizer" => "images#index"
   post "image_resize" => "images#create"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
