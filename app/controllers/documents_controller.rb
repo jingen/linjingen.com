@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
     payload = JSON.parse(params[:payload]) if params[:payload].present?
     payload.each do |crocodoc|
       doc = Document.where(croc_uuid: crocodoc["uuid"]).first
-      if crocodoc["status"] == "DONE" && crocodoc["viewable"]
+      if !doc.nil? && crocodoc["status"] == "DONE" && crocodoc["viewable"]
         doc.gen_thumbnail
       end
     end
