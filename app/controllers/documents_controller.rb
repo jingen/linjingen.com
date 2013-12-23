@@ -14,6 +14,7 @@ class DocumentsController < ApplicationController
         doc.gen_thumbnail
       end
     end
+    render :nothing => true
   end
 
   def create
