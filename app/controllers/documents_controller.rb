@@ -2,8 +2,8 @@ class DocumentsController < ApplicationController
   def index
   end
 
-  def gen_thumbnail
-    
+  def webhook
+    logger.debug params
   end
 
   def create

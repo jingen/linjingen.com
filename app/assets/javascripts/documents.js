@@ -14,6 +14,7 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", function ($scope, $h
       data: {document: $scope.newDoc},
       file: $scope.file,
     }).success(function(data, status, headers, config) {
+      $("#documentUpload").modal("hide");
     }).error(function(data,status){});;
   }
 }]);

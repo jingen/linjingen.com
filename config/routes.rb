@@ -16,7 +16,7 @@ Linjingen::Application.routes.draw do
 
   get "doc_library"       => "documents#index"
   post "add_doc"          => "documents#create"
-  post "crocodoc_webhook" => "documents#gen_thumbnail"
+  post "crocodoc_webhook" => "documents#webhook"
 
   get "video_library" => "videos#index"
 

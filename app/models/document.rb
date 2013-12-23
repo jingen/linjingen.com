@@ -16,4 +16,19 @@ class Document
   field :croc_uuid, type: String
   field :title, type: String
   field :description, type: String
+
+  after_save :upload_to_crocodoc
+
+  def gen_thumbnail
+
+  end
+
+  protected
+
+  def upload_to_crocodoc
+    if self.file.present?
+      self.set(:croc_uuid => Crocodoc::Document.upload(File.open(self.file.path, 'r')))
+    end
+  end
+
 end
