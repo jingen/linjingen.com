@@ -8,14 +8,14 @@ class DocumentsController < ApplicationController
 
   def webhook
     payload = JSON.parse(params[:payload]) if params[:payload].present?
-    puts payload
-    puts "payload!!!"
+    logger.debug payload
+    logger.debug "payload!!!"
     payload.each do |crocodoc|
+      logger.debug crocodoc
       doc = Document.where(croc_uuid: crocodoc[:uuid]).first
       if crocodoc[:status] == "DONE" && crocodoc[:viewable]
         doc.gen_thumbnail
       end
-      puts doc
     end
     render :nothing => true
   end
