@@ -5,8 +5,20 @@
 <meta name="description" content="Online document library | Jingen Lin is an excellent Software Engineer, Web Application Developer, Computer Scientist, holds an master degree in Computer Science from New York University, Courant Institute"> 
 <%end%>
 
-<div class="container" ng-controller="DocLibrary">
-  <h1>documents</h1>
-  <a class="btn btn-primary" data-toggle="modal" data-target="#documentUpload">Add a new document</a>
-  <%= render "modal"%>
+<div class="container doc_main" ng-controller="DocLibrary">
+  <%if !user_signed_in? %>
+    <div class="alert alert-warning">
+      <p>
+        Get an account to build your online document library.
+        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook"><button class="btn btn-primary btn-xs">Sign up with facebook</button></a>
+      </p>
+    </div>
+  <%end%>
+  <div class="well well-lg">
+    <a class="add_new_doc" data-toggle="modal" data-target="#documentUpload">Add a new document</a>
+  </div>
+
+<%= render "public_library" %>
 </div>
+
+<%= render "modal"%>

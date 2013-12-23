@@ -1,3 +1,42 @@
-// Place all the styles related to the documents controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.doc_facebook{
+  height: 20px;
+}
+
+.add_new_doc{
+  padding: 30px 35px;
+  margin: 6px 6px 6px 0;
+  border: dashed 2px silver;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.doc_main{
+  .well{
+    margin-top: 15px;
+  }
+  .alert{
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+}
+
+.doc_brick{
+  display: inline-block;
+  padding: 0 5px;
+  .doc_title, .doc_description{
+    padding-left: 38px;
+    text-transform: capitalize;
+    width: 233px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .doc_description{
+    height: 3em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}

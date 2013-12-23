@@ -16,12 +16,25 @@ class Document
   field :croc_uuid, type: String
   field :title, type: String
   field :description, type: String
+  field :public, type: Boolean, default: true
+
+  scope :public_docs, where(public: true)
 
   after_save :upload_to_crocodoc
 
   def gen_thumbnail
     self.image = StringIO.new(Crocodoc::Download.thumbnail(self.croc_uuid, 200, 200))
     self.save
+  end
+
+  def as_json(options)
+    {
+      id: self.id.to_s,
+      title: self.title,
+      description: self.description,
+      croc_uuid: self.croc_uuid,
+      thumbnail: self.image.url(:thumbnail)
+    }
   end
 
   protected

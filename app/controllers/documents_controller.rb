@@ -6,6 +6,11 @@ class DocumentsController < ApplicationController
   def index
   end
 
+  def public_docs
+    @docs = Document.public_docs
+    render :json => @docs
+  end
+
   def webhook
     payload = JSON.parse(params[:payload]) if params[:payload].present?
     payload.each do |crocodoc|

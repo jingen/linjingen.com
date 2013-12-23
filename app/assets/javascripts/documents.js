@@ -4,6 +4,12 @@
 var app = angular.module('jl', ["angularFileUpload"]);
 
 app.controller("DocLibrary", ["$scope", "$http", "$upload", function ($scope, $http, $upload) {
+
+  $http.get("/public_docs").success(function(data, status){
+    $scope.public_docs = data;
+  });
+
+
   $scope.newDoc = {};
   $scope.onFileSelect = function($files){
     $scope.file = $files[0];
@@ -16,5 +22,6 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", function ($scope, $h
     }).success(function(data, status, headers, config) {
       $("#documentUpload").modal("hide");
     }).error(function(data,status){});;
-  }
+  };
+
 }]);

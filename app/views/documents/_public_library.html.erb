@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  <h3> Public Library </h3>
+  </div>
+  <div class="panel-body">
+    <input type="search" ng-model="keywords">
+
+    <div class="doc_container">
+    <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in public_docs" ng-cloak>
+      <h4 class="doc_title">{{doc.title}}</h4>
+      <p class="doc_description">{{doc.description}}</p>
+      <p class="text-center"><img ng-src="{{doc.thumbnail}}" alt="document"></p>
+    </div>
+    </div>
+  </div> 
+</div>

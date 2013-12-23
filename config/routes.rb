@@ -15,6 +15,7 @@ Linjingen::Application.routes.draw do
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
   get "doc_library"       => "documents#index"
+  get "public_docs"       => "documents#public_docs"
   post "add_doc"          => "documents#create"
   post "crocodoc_webhook" => "documents#webhook"
 
