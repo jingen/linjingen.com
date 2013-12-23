@@ -20,7 +20,7 @@ class Document
   after_save :upload_to_crocodoc
 
   def gen_thumbnail
-
+    self.set(:image => StringIO.new(Crocodoc::Download.thumbnail(self.croc_uuid, 200, 200)))
   end
 
   protected

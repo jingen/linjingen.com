@@ -1,17 +1,27 @@
 class DocumentsController < ApplicationController
+  # protect_from_forgery :only => [:update, :delete, :create]
+  protect_from_forgery :except => [:webhook]
+  # skip_before_filter :verify_authenticity_token
+
   def index
   end
 
   def webhook
-    logger.debug params
+    payload = JSON.parse(params[:payload]) if params[:payload].present?
+    payload.each do |crocodoc|
+      doc = Document.where(croc_uuid: crocodoc[:uuid]).first
+      if crocodoc[:status] == "DONE" && crocodoc[:viewable]
+        doc.gen_thumbnail
+      end
+    end
   end
 
   def create
     @document = Document.new(document_params)
     if @document.save
-      redirect_to doc_library_path
+      render json: @document
     else
-      redirect_to root_path
+      render json: @document.errors , status: :unprocessable_entity 
     end
   end
 
