@@ -1,1 +1,12 @@
-<h1>documents</h1>
+<%=stylesheet "app_doc_library"%>
+<%=javascript "documents"%>
+<%content_for(:title) {"Document Library | Jingen Lin | Experienced Software Engineer / Web Application Developer"}%>
+<%content_for(:meta) do%>
+<meta name="description" content="Online document library | Jingen Lin is an excellent Software Engineer, Web Application Developer, Computer Scientist, holds an master degree in Computer Science from New York University, Courant Institute"> 
+<%end%>
+
+<div class="container" ng-controller="DocLibrary">
+  <h1>documents</h1>
+  <a class="btn btn-primary" data-toggle="modal" data-target="#documentUpload">Add a new document</a>
+  <%= render "modal"%>
+</div>

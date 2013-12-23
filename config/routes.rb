@@ -9,17 +9,19 @@ Linjingen::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'aboutus' => "welcome#about_me"
-  get 'aboutme' => "welcome#about_me"
+  get 'aboutus'   => "welcome#about_me"
+  get 'aboutme'   => "welcome#about_me"
   get 'jingenlin' => "welcome#about_me"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
-  get "doc_library" => "documents#index"
+  get "doc_library"       => "documents#index"
+  post "add_doc"          => "documents#create"
+  post "crocodoc_webhook" => "documents#gen_thumbnail"
 
   get "video_library" => "videos#index"
 
   get "spell_checker" => "words#index"
-  post "word_check" => "words#check"
+  post "word_check"   => "words#check"
 
   get "image_resizer" => "images#index"
   post "image_resize" => "images#create"

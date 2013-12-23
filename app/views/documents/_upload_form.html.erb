@@ -1,0 +1,21 @@
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="docTitle" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="docTitle" placeholder="Enter title..." ng-model="newDoc.title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="docDescription" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="docDescription" placeholder="Enter description..." ng-model="newDoc.description">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="docFile" class="col-sm-2 control-label">File input</label>
+    <div class="col-sm-8">
+      <input type="file" id="docFile" ng-file-select="onFileSelect($files)">
+    </div>
+  </div>
+  <a class="btn btn-primary" ng-click="addDoc()">add</a>
+</form>
