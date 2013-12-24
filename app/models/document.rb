@@ -40,7 +40,7 @@ class Document
   protected
 
   def upload_to_crocodoc
-    if self.file.present?
+    if self.file.present? && self.file_filename_changed?
       self.set(:croc_uuid => Crocodoc::Document.upload(File.open(self.file.path, 'r')))
     end
   end

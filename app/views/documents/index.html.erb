@@ -16,9 +16,13 @@
   <%end%>
   <div class="well well-lg">
     <a class="add_new_doc" data-toggle="modal" data-target="#documentUpload">Add a new document</a>
+    <span class="alert alert-info">
+      Support formats:  PDF, Microsoft Word (doc/docx), Microsoft PowerPoint (ppt/pptx), and Microsoft Excel (xls/xlsx)
+    </span>
+
   </div>
 
 <%= render "public_library" %>
+<%= render "modal"%>
 </div>
 
-<%= render "modal"%>

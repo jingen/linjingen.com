@@ -1,4 +1,4 @@
-<div class="modal fade" id="documentUpload" ng-controller="DocLibrary">
+<div class="modal fade" id="documentUpload">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,6 +9,7 @@
         <%=render "upload_form"%>
       </div>
       <div class="modal-footer">
+        <a class="btn btn-primary" ng-click="addDoc()" ng-disabled="!readyUpload">Add to library</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
