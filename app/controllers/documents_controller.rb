@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   # protect_from_forgery :only => [:update, :delete, :create]
   protect_from_forgery :except => [:webhook]
   # skip_before_filter :verify_authenticity_token
+  before_filter :authenticate_user!, :only => [:user_docs]
 
   def index
   end
@@ -9,6 +10,31 @@ class DocumentsController < ApplicationController
   def public_docs
     @docs = Document.public_docs
     render :json => @docs
+  end
+
+  def user_docs
+    @user_docs = current_user.documents if user_signed_in?
+    render :json => @user_docs
+  end
+
+  def crocodoc_session
+    @session_key = Crocodoc::Session.create(params[:croc_uuid]) if params[:croc_uuid].present?
+    unless @session_key.nil?
+      render json: {session_key: @session_key, view_url: get_view_url}, status: :ok
+    else
+      render json: {error: "can not get session key"}, status: :unprocessable_entity
+    end
+  end
+
+  def get_view_url
+    @view_url = "https://crocodoc.com/view/" + @session_key
+  end
+
+  def session_param
+    {
+      'is_downloadable' => true,
+      'sidebar' => 'visible'
+    }
   end
 
   def webhook
@@ -24,8 +50,9 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
+    @document.user = current_user if user_signed_in?
     if @document.save
-      render json: @document
+      render json: @document, status: :ok
     else
       render json: @document.errors , status: :unprocessable_entity 
     end
@@ -41,6 +68,7 @@ class DocumentsController < ApplicationController
       params[:document] = JSON.parse(params[:document])
       params[:document][:file] = params[:file]
     end
-    params.require(:document).permit(:title, :description, :file)
+    params[:public] = true unless user_signed_in?
+    params.require(:document).permit(:title, :description, :public, :file)
   end
 end

@@ -63,3 +63,10 @@ nav.navbar {
 .monospace{
   font-family: monospace;
 }
+.clicked{
+ color: #000;
+ &:hover{
+  color: #000;
+  text-decoration: none;
+ }
+}

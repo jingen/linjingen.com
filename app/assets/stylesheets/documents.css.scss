@@ -13,6 +13,13 @@
   cursor: pointer;
 }
 
+.alpha-order{
+  padding-top: 8px;
+  a{
+    cursor: pointer;
+  }
+}
+
 .doc_main{
   .well{
     margin-top: 15px;
@@ -20,6 +27,7 @@
   .alert{
     margin-top: 5px;
     margin-bottom: 0;
+    display: inline-block;
   }
 }
 
@@ -58,4 +66,38 @@
 }
 .no_left_padding{
   padding-left: 0;
+}
+
+@media (max-width: 768px){
+  #documentView .modal-dialog{
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .doc_brick .doc_content{
+    margin-left: 85px;
+  }
+}
+
+@media (max-width: 450px) {
+  .doc_brick .doc_content{
+    margin-left: 12px;
+  }
+}
+
+#documentView{
+  .doc_view_ifr{
+    width: 100%;
+    min-height: 500px;
+  }
+  .modal-dialog{
+    width: 72%;
+  }
+}
+
+#documentUpload{
+  .modal-footer{
+    margin-top: 0;
+  }
 }

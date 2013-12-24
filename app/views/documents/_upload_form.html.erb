@@ -32,4 +32,17 @@
       <p class="text-danger">*require</p>
     </div>
   </div>
+
+  <%if user_signed_in?%>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-7">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="newDoc.public"> Public
+        </label>
+      </div>
+    </div>
+  </div>
+  <%end%>
+  
 </form>

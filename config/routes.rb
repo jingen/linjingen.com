@@ -14,10 +14,12 @@ Linjingen::Application.routes.draw do
   get 'jingenlin' => "welcome#about_me"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
-  get "doc_library"       => "documents#index"
-  get "public_docs"       => "documents#public_docs"
-  post "add_doc"          => "documents#create"
-  post "crocodoc_webhook" => "documents#webhook"
+  get "doc_library"          => "documents#index"
+  get "public_docs"          => "documents#public_docs"
+  get "user_docs"            => "documents#user_docs"
+  post "add_doc"             => "documents#create"
+  post "crocodoc_webhook"    => "documents#webhook"
+  get "documents/:croc_uuid" => "documents#crocodoc_session"
 
   get "video_library" => "videos#index"
 

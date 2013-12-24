@@ -1,0 +1,29 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+  <h3> <%= current_user.email %> Online Document Library </h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-1 alpha-order">
+      <span><a ng-class="{clicked: !userReverse}" ng-click="userReverse=false">A-Z</a> | <a ng-class="{clicked: userReverse}" ng-click="userReverse=true">Z-A</a></span>
+    </div>
+    <div class="input-group col-sm-6">
+      <input type="search" class="form-control" ng-model="userKeywords" id="searchBar">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="searchBtn"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+    <hr>
+    <div class="doc_container">
+      <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in userLibDocs | filter:userKeywords |orderBy: 'title':userReverse" ng-cloak>
+        <div class="doc_content">
+          <h4 class="doc_title">{{doc.title}}</h4>
+          <p class="doc_description">{{doc.description}}</p>
+          <p class="text-center"><a ng-click="docView(doc)"><img class="thumbnail" ng-src="{{doc.thumbnail}}" alt="document"></a></p>
+        </div>
+      </div>
+      <div class="alert alert-warning" ng-show="!userLibDocs.length">
+        <p>You haven't uploaded any files to your library.</p>
+      </div>
+    </div>
+  </div> 
+</div>

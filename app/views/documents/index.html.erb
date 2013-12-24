@@ -21,8 +21,11 @@
     </span>
 
   </div>
-
-<%= render "public_library" %>
-<%= render "modal"%>
+  
+  <%if user_signed_in?%>
+    <%= render "user_library"%>
+  <%end%>
+  <%= render "public_library" %>
+  <%= render "modal"%>
 </div>
 

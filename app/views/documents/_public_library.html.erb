@@ -3,10 +3,18 @@
   <h3> Public Library </h3>
   </div>
   <div class="panel-body">
-    <input type="search" ng-model="keywords">
-
+    <div class="col-sm-1 alpha-order">
+      <span><a ng-class="{clicked: !reverse}" ng-click="reverse=false">A-Z</a> | <a ng-class="{clicked: reverse}" ng-click="reverse=true">Z-A</a></span>
+    </div>
+    <div class="input-group col-sm-6">
+      <input type="search" class="form-control" ng-model="keywords" id="searchBar">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="searchBtn"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+    <hr>
     <div class="doc_container">
-    <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in public_docs" ng-cloak>
+    <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in publicLibDocs | filter:keywords |orderBy: 'title':reverse" ng-cloak>
       <div class="doc_content">
         <h4 class="doc_title">{{doc.title}}</h4>
         <p class="doc_description">{{doc.description}}</p>

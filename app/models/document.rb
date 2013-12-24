@@ -16,7 +16,7 @@ class Document
   field :croc_uuid, type: String
   field :title, type: String
   field :description, type: String
-  field :public, type: Boolean, default: true
+  field :public, type: Boolean, default: false
 
   scope :public_docs, where(public: true)
 

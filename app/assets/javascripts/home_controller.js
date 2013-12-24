@@ -1,7 +1,8 @@
 app.controller('HomeController', ['$scope', '$http', function($scope, $http){
   $scope.logout = function(){
     $http({method: 'delete', url: '/users/sign_out'}).success(function(){
-      window.location.replace('/');
+      // window.location.replace('/');
+      location.reload(true);
     });
   };
 
@@ -39,7 +40,8 @@ app.controller('UserController', ['$scope', '$http', function($scope, $http){
   $scope.login = function(){
     $http.post("/users/sign_in", {user: $scope.user})
     .success(function(data, status){
-      window.location.replace('/');
+      // window.location.replace('/');
+      location.reload(true);
     })
     .error(function(data, status){
       $scope.loginError = true;
@@ -49,7 +51,8 @@ app.controller('UserController', ['$scope', '$http', function($scope, $http){
   $scope.signup= function(){
     $http.post("/users", {user: $scope.user})
     .success(function(data, status){
-      window.location.replace('/');
+      // window.location.replace('/');
+      location.reload(true);
     })
     .error(function(data, status){
       $scope.signupError = true;
