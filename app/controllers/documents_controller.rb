@@ -18,7 +18,7 @@ class DocumentsController < ApplicationController
   end
 
   def crocodoc_session
-    @session_key = Crocodoc::Session.create(params[:croc_uuid]) if params[:croc_uuid].present?
+    @session_key = Crocodoc::Session.create(params[:croc_uuid], session_param) if params[:croc_uuid].present?
     unless @session_key.nil?
       render json: {session_key: @session_key, view_url: get_view_url}, status: :ok
     else
@@ -32,8 +32,8 @@ class DocumentsController < ApplicationController
 
   def session_param
     {
-      'is_downloadable' => true,
-      'sidebar' => 'visible'
+      'is_downloadable' => true
+      # 'sidebar' => 'visible'
     }
   end
 
