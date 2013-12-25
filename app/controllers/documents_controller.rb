@@ -103,7 +103,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params[:to_public] = true unless user_signed_in?
+    params[:document][:to_public] = true unless user_signed_in?
     params.require(:document).permit(:title, :description, :to_public, :file)
   end
 end
