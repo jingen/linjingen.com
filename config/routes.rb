@@ -18,6 +18,8 @@ Linjingen::Application.routes.draw do
   get "public_docs"          => "documents#public_docs"
   get "user_docs"            => "documents#user_docs"
   post "add_doc"             => "documents#create"
+  post "update_doc"          => "documents#update"
+  post "delete_doc"          => "documents#destroy"
   post "crocodoc_webhook"    => "documents#webhook"
   get "documents/:croc_uuid" => "documents#crocodoc_session"
 

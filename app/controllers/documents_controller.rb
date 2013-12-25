@@ -2,7 +2,8 @@ class DocumentsController < ApplicationController
   # protect_from_forgery :only => [:update, :delete, :create]
   protect_from_forgery :except => [:webhook]
   # skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!, :only => [:user_docs]
+  before_filter :authenticate_user!, :only => [:user_docs, :update, :destroy]
+  before_filter :parse_doc_params, :only => [:create, :update]
 
   def index
   end
@@ -70,17 +71,35 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def update
+    @document = current_user.documents.find(params[:document][:id])
+    if @document.update_attributes(document_params)
+      render json: @document, status: :ok
+    else
+      render json: @document.errors , status: :unprocessable_entity 
+    end
+  end
+
   def destroy
+    current_user.documents.find(params[:id]).destroy_with_croc
+    # render json: true, status: :ok
+    respond_to do |format|
+      format.html { render :nothing => true }
+      format.json { head :no_content }
+    end
   end
 
   private
 
-  def document_params
-    if params[:file].present?
+  def parse_doc_params
+    if params[:document].present?
       params[:document] = JSON.parse(params[:document])
-      params[:document][:file] = params[:file]
+      params[:document][:file] = params[:file] if params[:file].present?
     end
-    params[:public] = true unless user_signed_in?
-    params.require(:document).permit(:title, :description, :public, :file)
+  end
+
+  def document_params
+    params[:to_public] = true unless user_signed_in?
+    params.require(:document).permit(:title, :description, :to_public, :file)
   end
 end

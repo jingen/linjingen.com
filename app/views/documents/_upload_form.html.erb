@@ -1,10 +1,10 @@
-<form class="form-horizontal upload_form" role="form">
+<form class="form-horizontal upload_form" role="form" ng-show="!processing">
   <div class="form-group">
     <label for="docTitle" class="col-sm-3 control-label">Title</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control" id="docTitle" placeholder="Enter title..." ng-model="newDoc.title" ng-change="readyCheck()">
+      <input type="text" class="form-control" id="docTitle" placeholder="Enter title..." ng-model="<%=doc%>.title" ng-change="<%=doc%>ReadyCheck()">
     </div>
-    <div class="col-sm-2 no_left_padding" ng-hide="newDoc.title">
+    <div class="col-sm-2 no_left_padding" ng-hide="<%=doc%>.title">
       <p class="text-danger">*require</p>
     </div>
   </div>
@@ -12,9 +12,9 @@
   <div class="form-group">
     <label for="docDescription" class="col-sm-3 control-label">Description</label>
     <div class="col-sm-7">
-      <textarea class="form-control" id="docDescription" rows="3" placeholder="Enter description..." ng-model="newDoc.description" ng-change="readyCheck()"></textarea>
+      <textarea class="form-control" id="docDescription" rows="3" placeholder="Enter description..." ng-model="<%=doc%>.description" ng-change="<%=doc%>ReadyCheck()"></textarea>
     </div>
-    <div class="col-sm-2 no_left_padding" ng-hide="newDoc.description">
+    <div class="col-sm-2 no_left_padding" ng-hide="<%=doc%>.description">
       <p class="text-danger">*require</p>
     </div>
   </div>
@@ -28,9 +28,13 @@
         <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
       </div>
     </div>
-    <div class="col-sm-2 no_left_padding" ng-hide="file">
-      <p class="text-danger">*require</p>
-    </div>
+
+    <%if doc == "newDoc" %>
+      <div class="col-sm-2 no_left_padding" ng-hide="file">
+        <p class="text-danger">*require</p>
+      </div>
+    <%end%>
+
   </div>
 
   <%if user_signed_in?%>
@@ -38,7 +42,7 @@
     <div class="col-sm-offset-3 col-sm-7">
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-model="newDoc.public"> Public
+          <input type="checkbox" ng-model="<%=doc%>.to_public" ng-checked="<%=doc%>.to_public"> Public
         </label>
       </div>
     </div>
@@ -46,3 +50,7 @@
   <%end%>
   
 </form>
+
+<div class="text-center" ng-show="processing">
+  <img src="/img/icons/processing.gif" alt="processing">
+</div>

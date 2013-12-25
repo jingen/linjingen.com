@@ -39,19 +39,19 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
 
   fetchData();
 
-  $scope.readyUpload = false;
-  $scope.readyCheck = function(){
+  $scope.newDocReady = false;
+  $scope.newDocReadyCheck = function(){
     if(!!$scope.file && !!$scope.newDoc.title && !!$scope.newDoc.description){
-      $scope.readyUpload = true;
+      $scope.newDocReady = true;
     }else{
-      $scope.readyUpload = false;
+      $scope.newDocReady = false;
     }
   };
 
   $scope.newDoc = {};
   $scope.onFileSelect = function($files){
     $scope.file = $files[0];
-    $scope.readyCheck();
+    $scope.newDocReadyCheck();
   };
 
   var documentUpload = $("#documentUpload"),
@@ -62,6 +62,7 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
       docFile.fileinput("clear");
   };
   $scope.addDoc = function(){
+    $scope.processing = true;
     $upload.upload({
       url: '/add_doc',
       data: {document: $scope.newDoc},
@@ -70,7 +71,56 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
       documentUpload.modal("hide");
       fetchData();
       resetUploadForm();
+      $scope.processing = false;
     }).error(function(data,status){});;
+  };
+
+  $scope.editedDocReady = true;
+  $scope.editedDocReadyCheck = function(){
+    if(!!$scope.editedDoc.title && !!$scope.editedDoc.description){
+      $scope.editedDocReady = true;
+    }else{
+      $scope.editedDocReady = false;
+    }
+  };
+
+  $scope.editedDoc = {};
+  $scope.editDoc = function(doc){
+    $scope.editedDoc = angular.copy(doc);
+  };
+
+  var documentEditUpload = $("#documentEditUpload"),
+  docEditFile = $("#documentEditUpload .fileinput");
+  var resetEditUploadForm = function(){
+    $scope.file = "";
+    $scope.editedDoc = {};
+    docEditFile.fileinput("clear");
+  };
+  $scope.updateDoc = function(){
+    $scope.processing = true;
+    if(typeof $scope.file == "undefined") $scope.file = "";
+    $upload.upload({
+      url: '/update_doc',
+      data: {document: $scope.editedDoc},
+      file: $scope.file,
+    }).success(function(data, status, headers, config) {
+      documentEditUpload.modal("hide");
+      fetchData();
+      resetEditUploadForm();
+      $scope.processing = false;
+    }).error(function(data,status){});
+  };
+
+  var deleteConfirmModel = $("#deleteConfirmModel");
+  $scope.deleteConfirm = function(doc){
+    $scope.deleteDocId = doc.id
+  };
+  $scope.deleteDoc = function(){
+    deleteConfirmModel.modal("hide");
+    $http.post("delete_doc", {id: $scope.deleteDocId})
+      .success(function(data, status){
+        fetchData();
+      }).error(function(data, status){});
   };
 
   var documentView = $("#documentView");

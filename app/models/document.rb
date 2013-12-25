@@ -16,9 +16,9 @@ class Document
   field :croc_uuid, type: String
   field :title, type: String
   field :description, type: String
-  field :public, type: Boolean, default: false
+  field :to_public, type: Boolean, default: false
 
-  scope :public_docs, where(public: true)
+  scope :public_docs, where(to_public: true)
 
   after_save :upload_to_crocodoc
 
@@ -33,8 +33,14 @@ class Document
       title: self.title,
       description: self.description,
       croc_uuid: self.croc_uuid,
-      thumbnail: self.image.url(:thumbnail)
+      thumbnail: self.image.url(:thumbnail),
+      to_public: self.to_public
     }
+  end
+
+  def destroy_with_croc
+    Crocodoc::Document.delete(self.croc_uuid)
+    self.destroy
   end
 
   protected
@@ -44,5 +50,4 @@ class Document
       self.set(:croc_uuid => Crocodoc::Document.upload(File.open(self.file.path, 'r')))
     end
   end
-
 end

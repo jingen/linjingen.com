@@ -21,8 +21,8 @@
           <div class="dropdown pull-left">
             <a data-toggle="dropdown"><img class="menu-arrow" src="/img/icons/menu_arrow.png" alt="doc edit menu"></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><a title="Edit">Edit</a></li>
-              <li><a title="Delete">Delete</a></li>
+              <li><a title="Edit" data-toggle="modal" data-target="#documentEditUpload" ng-click="editDoc(doc)">Edit</a></li>
+              <li><a title="Delete" data-toggle="modal" data-target="#deleteConfirmModel" ng-click="deleteConfirm(doc)">Delete</a></li>
             </ul>
           </div>
 
