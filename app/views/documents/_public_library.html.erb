@@ -16,9 +16,9 @@
     <div class="doc_container">
     <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in publicLibDocs | filter:keywords |orderBy: 'title':reverse" ng-cloak>
       <div class="doc_content">
-        <h4 class="doc_title">{{doc.title}}</h4>
+        <h4 class="doc_title"><a ng-click="docView(doc)" title="document title">{{doc.title}}</a></h4>
         <p class="doc_description">{{doc.description}}</p>
-        <p class="text-center"><a ng-click="docView(doc)"><img class="thumbnail" ng-src="{{doc.thumbnail}}" alt="document"></a></p>
+        <p class="text-center"><a ng-click="docView(doc)" title="document thumbnail"><img class="thumbnail" ng-src="{{doc.thumbnail}}" alt="document"></a></p>
       </div>
     </div>
     </div>

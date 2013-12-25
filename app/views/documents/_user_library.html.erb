@@ -1,6 +1,6 @@
 <div class="panel panel-success">
   <div class="panel-heading">
-  <h3> <%= current_user.email %> Online Document Library </h3>
+  <h3> <%= current_user.email %>'s Online Document Library </h3>
   </div>
   <div class="panel-body">
     <div class="col-sm-1 alpha-order">
@@ -16,9 +16,18 @@
     <div class="doc_container">
       <div class="col-sm-6 col-md-3 doc_brick" ng-repeat="doc in userLibDocs | filter:userKeywords |orderBy: 'title':userReverse" ng-cloak>
         <div class="doc_content">
-          <h4 class="doc_title">{{doc.title}}</h4>
+          <h4 class="doc_title"><a ng-click="docView(doc)" title="document title">{{doc.title}}</a></h4>
+
+          <div class="dropdown pull-left">
+            <a data-toggle="dropdown"><img class="menu-arrow" src="/img/icons/menu_arrow.png" alt="doc edit menu"></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a title="Edit">Edit</a></li>
+              <li><a title="Delete">Delete</a></li>
+            </ul>
+          </div>
+
           <p class="doc_description">{{doc.description}}</p>
-          <p class="text-center"><a ng-click="docView(doc)"><img class="thumbnail" ng-src="{{doc.thumbnail}}" alt="document"></a></p>
+          <p class="text-center"><a ng-click="docView(doc)" title="document thumbnail"><img class="thumbnail" ng-src="{{doc.thumbnail}}" alt="document"></a></p>
         </div>
       </div>
       <div class="alert alert-warning" ng-show="!userLibDocs.length">
@@ -26,4 +35,5 @@
       </div>
     </div>
   </div> 
+
 </div>

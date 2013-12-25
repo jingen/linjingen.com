@@ -76,10 +76,12 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
   var documentView = $("#documentView");
   $scope.viewDoc = {};
   $scope.docView = function(doc){
-    $scope.viewDoc = doc;
-    crocodocSession.get_session(doc.croc_uuid).success(function(data, status){
-      $scope.viewDoc.view_url = data.view_url;
-    });
+    if ($scope.viewDoc != doc) {
+      $scope.viewDoc = doc;
+      crocodocSession.get_session(doc.croc_uuid).success(function(data, status){
+        $scope.viewDoc.view_url = data.view_url;
+      });
+    }
     documentView.modal("show");
   };
 

@@ -33,10 +33,16 @@
 
 .doc_brick{
     padding: 0;
+  a {
+    cursor: pointer;
+  }
   .doc_content{
     border: solid 1px silver;
     padding: 10px 10px;
     margin: 5px;
+    .dropdown{
+      padding-top: 9px;
+    }
   }
   display: inline-block;
   .thumbnail{
@@ -51,11 +57,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .doc_title{
+    white-space: nowrap;
+    width: 91%;
+    height: 1em;
+    float: left;
+  }
   .doc_description{
     height: 3em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+  .menu-arrow{
+    width: 22px;
   }
 }
 
@@ -87,9 +102,15 @@
 }
 
 #documentView{
+  .modal-header{
+    padding: 10px 10px 5px;
+  }
+  .modal-body{
+    padding: 5px;
+  }
   .doc_view_ifr{
     width: 100%;
-    min-height: 500px;
+    min-height: 530px;
   }
   .modal-dialog{
     width: 72%;

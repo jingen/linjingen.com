@@ -7,6 +7,8 @@ class User
   devise :database_authenticatable, :registerable, :confirmable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_create :set_unique_id
+
   has_many :documents
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -46,6 +48,9 @@ class User
   # facebook omniauth
   field :provider, :type => String
   field :uid, :type      => String
+
+  # uniq short id
+  field :unique_id, :type => Integer, :default => 1
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
@@ -55,6 +60,9 @@ class User
   # field :authentication_token, :type => String
 
   # protected
+  def set_unique_id
+    self.set(:unique_id => User.count)
+  end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

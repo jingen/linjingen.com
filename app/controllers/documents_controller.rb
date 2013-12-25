@@ -31,10 +31,22 @@ class DocumentsController < ApplicationController
   end
 
   def session_param
-    {
-      'is_downloadable' => true
-      # 'sidebar' => 'visible'
-    }
+    if user_signed_in?
+      {
+        'is_editable' => true,
+        'user'        => {
+          'id' => current_user.unique_id,
+          'name' => current_user.email
+        },
+        'is_downloadable' => true,
+        'sidebar' => 'collapse'
+      }
+    else
+      {
+        'is_downloadable' => true,
+        'sidebar' => 'collapse'
+      }
+    end
   end
 
   def webhook
