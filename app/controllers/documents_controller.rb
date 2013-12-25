@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   # protect_from_forgery :only => [:update, :delete, :create]
   protect_from_forgery :except => [:webhook]
   # skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!, :only => [:user_docs, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:update, :destroy]
   before_filter :parse_doc_params, :only => [:create, :update]
 
   def index
@@ -14,8 +14,12 @@ class DocumentsController < ApplicationController
   end
 
   def user_docs
-    @user_docs = current_user.documents if user_signed_in?
-    render :json => @user_docs
+    if user_signed_in?
+      @user_docs = current_user.documents 
+      render :json => @user_docs
+    else
+      render :json => {}
+    end
   end
 
   def crocodoc_session
