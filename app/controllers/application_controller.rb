@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
   def should_store_url?
     controller = params[:controller]
     action     = params[:action]
-    controller == "welcome" || (action == "index" && (controller == "documents" || controller == "video" || controller == "words" || controller == "images"))
+    controller == "welcome" || (action == "index" && (controller == "documents" || controller == "videos" || controller == "words" || controller == "images"))
   end
 end

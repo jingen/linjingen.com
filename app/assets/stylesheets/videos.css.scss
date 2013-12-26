@@ -1,3 +1,56 @@
-// Place all the styles related to the videos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.add_video_doc{
+  padding: 30px 35px;
+  margin: 6px 6px 6px 0;
+  border: dashed 2px silver;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.video_main{
+  .well{
+    margin-top: 15px;
+  }
+  .alert{
+    margin-top: 5px;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  .alert-info{
+    width: 42%;
+    vertical-align: middle;
+    margin-top: 0;
+  }
+}
+
+#newVideoModal {
+  .modal-dialog{
+    width: 750px;
+  }
+  .modal-footer{
+    margin-top: 0;
+  }
+  .modal-body{
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  #newVideoModal .modal-dialog{
+    width: 100% !important;
+    margin: 0;
+  }
+  .video_main {
+    .alert-info{
+      width: 100% !important;
+    }
+    .alert-warning {
+      width: 100%;
+      a{
+        display: block;
+      }
+    }
+  }
+}

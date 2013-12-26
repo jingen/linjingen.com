@@ -1,1 +1,32 @@
-<h1>Video</h1>
+<%=stylesheet "app_video_library"%>
+<%=javascript "videos"%>
+<%content_for(:title) {"Video Library | urappzone gives you private video library online."}%>
+<%content_for(:meta) do%>
+<meta name="description" content="Your online video library, organize, save and share favorite videos - all on urappzone"> 
+<%end%>
+
+<div class="container video_main" ng-controller="VideoLibrary">
+  <%if !user_signed_in? %>
+    <div class="alert alert-warning">
+      <p>
+        Get an account to build your online video library.
+        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> class="btn btn-primary btn-xs" title="sign in Ur App Zone with facebook">Sign up with facebook</a>
+      </p>
+    </div>
+  <%end%>
+  <div class="well well-lg">
+    <a class="add_video_doc" data-toggle="modal" data-target="#newVideoModal">
+      Add a new video <%= "to Public Library" unless user_signed_in?%>
+    </a>
+    <span class="alert alert-info">
+       Supported major video streaming websites: <b>YouTube</b>, <b>Vimeo</b> etc.
+    </span>
+
+  </div>
+  
+  <%if user_signed_in?%>
+    <%= render "user_library"%>
+  <%end%>
+  <%= render "public_library" %>
+  <%= render "modal"%>
+</div>

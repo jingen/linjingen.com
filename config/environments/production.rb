@@ -60,7 +60,7 @@ Linjingen::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
-  config.assets.precompile += %w( app_welcome.css app_user_profile.css app_words.css app_image_resizer.css app_doc_library.css welcome.js user_profile.js words.js image_resizer.js documents.js)
+  config.assets.precompile += %w( app_welcome.css app_user_profile.css app_words.css app_image_resizer.css app_doc_library.css app_video_library.css welcome.js user_profile.js words.js image_resizer.js documents.js videos.js)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

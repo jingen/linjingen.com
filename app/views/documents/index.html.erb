@@ -1,8 +1,8 @@
 <%=stylesheet "app_doc_library"%>
 <%=javascript "documents"%>
-<%content_for(:title) {"Document Library | Jingen Lin | Experienced Software Engineer / Web Application Developer"}%>
+<%content_for(:title) {"Document Library | urappzone gives you private document library online."}%>
 <%content_for(:meta) do%>
-<meta name="description" content="Online document library | Jingen Lin is an excellent Software Engineer, Web Application Developer, Computer Scientist, holds an master degree in Computer Science from New York University, Courant Institute"> 
+<meta name="description" content="Your online document library, organize, save and share your Microsoft and PDF documents - all on urappzone"> 
 <%end%>
 
 <div class="container doc_main" ng-controller="DocLibrary">
@@ -10,14 +10,16 @@
     <div class="alert alert-warning">
       <p>
         Get an account to build your online document library.
-        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook"><button class="btn btn-primary btn-xs">Sign up with facebook</button></a>
+        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> class="btn btn-primary btn-xs" title="sign in Ur App Zone with facebook">Sign up with facebook</a>
       </p>
     </div>
   <%end%>
   <div class="well well-lg">
-    <a class="add_new_doc" data-toggle="modal" data-target="#documentUpload">Add a new document</a>
+    <a class="add_new_doc" data-toggle="modal" data-target="#documentUpload">
+      Add a new document <%= "to Public Library" unless user_signed_in?%>
+    </a>
     <span class="alert alert-info">
-      Support formats:  PDF, Microsoft Word (doc/docx), Microsoft PowerPoint (ppt/pptx), and Microsoft Excel (xls/xlsx)
+      Supported formats:  <b>PDF</b>, <b>Microsoft Word(doc/docx</b>), <b>PowerPoint(ppt/pptx</b>), and <b>Excel(xls/xlsx</b>)
     </span>
 
   </div>
