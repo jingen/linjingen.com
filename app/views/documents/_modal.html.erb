@@ -40,10 +40,10 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">{{viewDoc.title}}</h4>
-        <p>{{viewDoc.description}}</p>
       </div>
       <div class="modal-body">
         <iframe class="doc_view_ifr" ng-src="{{ viewDoc.view_url }}" ng-cloak></iframe>
+      <p class="help-block">{{viewDoc.description}}</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

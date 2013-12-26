@@ -21,12 +21,12 @@
     margin-top: 15px;
   }
   .alert{
-    margin-top: 5px;
+    margin-top: 12px;
     margin-bottom: 0;
     display: inline-block;
   }
   .alert-info{
-    width: 61%;
+    width: 62%;
     vertical-align: middle;
     margin-top: 0;
   }
@@ -123,10 +123,21 @@
   }
   .doc_view_ifr{
     width: 100%;
-    min-height: 78%;
   }
   .modal-dialog{
     width: 72%;
+  }
+  .modal-dialog {
+    height: 90%;
+    .modal-content{
+      height: 100%;
+      .modal-body{
+        height: 100%;
+        .doc_view_ifr{
+          min-height: 88%;
+        }
+      }
+    }
   }
 }
 

@@ -103,3 +103,15 @@ end
 rails g uploader image
 rails g model image
 rails g controller images
+
+# video.video_id         => "mZqGqE0D0n4"
+# video.provider         => "YouTube"
+# video.title            => "Cherry Bloom - King Of The Knife"
+# video.description      => "The first video from the upcoming album Secret Sounds, to download in-stores April 14. Checkout http://www.cherrybloom.net"
+# video.duration         => 175 (in seconds)
+# video.date             => Sat Apr 12 22:25:35 UTC 2008
+# video.thumbnail_small  => "http://i.ytimg.com/vi/mZqGqE0D0n4/default.jpg"
+# video.thumbnail_medium => "http://i.ytimg.com/vi/mZqGqE0D0n4/mqdefault.jpg"
+# video.thumbnail_large  => "http://i.ytimg.com/vi/mZqGqE0D0n4/hqdefault.jpg"
+# video.embed_url        => "http://www.youtube.com/embed/mZqGqE0D0n4"
+# video.embed_code       => "'<iframe src="http://www.youtube.com/embed/mZqGqE0D0n4" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'"

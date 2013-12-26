@@ -24,6 +24,7 @@ Linjingen::Application.routes.draw do
   get "documents/:croc_uuid" => "documents#crocodoc_session"
 
   get "video_library" => "videos#index"
+  post "process_video_link" => "videos#process_link"
 
   get "spell_checker" => "words#index"
   post "word_check"   => "words#check"
