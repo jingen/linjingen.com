@@ -2,6 +2,8 @@ class Video
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  belongs_to :user
+
   field :video_id, type: String 
   field :provider, type: String 
   field :title, type: String 
@@ -13,10 +15,14 @@ class Video
   field :thumbnail_large, type: String 
   field :embed_url, type: String 
   field :embed_code, type: String 
+  field :to_public, type: Boolean, default: false
+  field :temporary, type: Boolean, default: true
+
+  scope :public_videos, where({to_public: true, temporary: false})
 
   def self.new_video(video_link)
     video_info = VideoInfo.new(video_link)
-    new ({
+    create ({
           video_id:         video_info.video_id, 
           provider:         video_info.provider,
           title:            video_info.title,
@@ -29,6 +35,16 @@ class Video
           embed_url:        video_info.embed_url,
           embed_code:       video_info.embed_code
         })
+  end
+
+  def as_json(options)
+    {
+      id: self.id.to_s,
+      title: self.title,
+      description: self.description,
+      thumbnail_medium: self.thumbnail_medium,
+      embed_url: self.embed_url
+    }
   end
 end
 

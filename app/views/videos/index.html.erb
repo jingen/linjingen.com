@@ -15,7 +15,7 @@
     </div>
   <%end%>
   <div class="well well-lg">
-    <a class="add_video_doc" data-toggle="modal" data-target="#newVideoModal">
+    <a class="add_new_video" data-toggle="modal" data-target="#newVideoModal" ng-click="newVideo()">
       Add a new video <%= "to Public Library" unless user_signed_in?%>
     </a>
     <span class="alert alert-info">

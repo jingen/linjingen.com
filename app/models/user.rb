@@ -10,6 +10,8 @@ class User
   after_create :set_unique_id
 
   has_many :documents
+  has_many :videos
+  
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""

@@ -1,1 +1,31 @@
-<!-- <h1>public videos</h1> -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  <h3> Public Library </h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-1 alpha-order">
+      <span><a ng-class="{clicked: !reverse}" ng-click="reverse=false">A-Z</a> | <a ng-class="{clicked: reverse}" ng-click="reverse=true">Z-A</a></span>
+    </div>
+    <div class="input-group col-sm-6">
+      <input type="search" class="form-control" ng-model="keywords" id="searchBar">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="searchBtn"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+    <hr>
+    <div class="videos_container">
+    <div class="col-sm-6 col-md-3 video_brick" ng-repeat="video in publicLibVideos | filter:keywords |orderBy: 'title':reverse" ng-cloak>
+      <div class="video_content">
+        <div class="text-center">
+          <a ng-click="viewVideo(video)" title="video thumbnail | urappzone">
+          <img class="thumbnail" ng-src="{{video.thumbnail_medium}}" alt="video | urappzone">
+          <span class="btn-play"></span>
+          </a>
+        </div>
+        <h4 class="video_title"><a ng-click="viewVideo(video)" title="video title | urappzone">{{video.title}}</a></h4>
+        <p class="video_description">{{video.description}}</p>
+      </div>
+    </div>
+    </div>
+  </div> 
+</div>

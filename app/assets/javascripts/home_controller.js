@@ -70,3 +70,12 @@ app.directive('autoFillSync', ['$timeout', function($timeout){
     }
   }
 }]);
+
+$(function(){
+  var searchBtn = $("#searchBtn"),
+      searchBar = $('#searchBar');
+
+  searchBtn.on('click', function(e){
+    searchBar.focus();
+  });
+});

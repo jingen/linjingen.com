@@ -1,1 +1,45 @@
-<h1>user videos</h1>
+<div class="panel panel-success">
+  <div class="panel-heading">
+  <h3> <%= current_user.email %>'s Private Video Library</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-1 alpha-order">
+      <span><a ng-class="{clicked: !userReverse}" ng-click="userReverse=false">A-Z</a> | <a ng-class="{clicked: userReverse}" ng-click="userReverse=true">Z-A</a></span>
+    </div>
+    <div class="input-group col-sm-6">
+      <input type="search" class="form-control" ng-model="userKeywords" id="searchBar">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="searchBtn"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+    <hr>
+    <div class="video_container">
+      <div class="col-sm-6 col-md-3 video_brick" ng-repeat="video in userLibVideos | filter:userKeywords |orderBy: 'title':userReverse" ng-cloak>
+        <div class="video_content">
+
+          <div class="text-center">
+            <a ng-click="viewVideo(video)" title="video thumbnail | urappzone">
+              <img class="thumbnail" ng-src="{{video.thumbnail_medium}}" alt="video | urappzone">
+              <span class="btn-play"></span>
+            </a>
+          </div>
+
+          <div class="dropdown pull-left">
+            <a data-toggle="dropdown"><img class="menu-arrow" src="/img/icons/menu_arrow.png" alt="video edit menu"></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a title="Edit" data-toggle="modal" data-target="#editVideoModal" ng-click="editVideo(video)">Edit</a></li>
+              <li><a title="Delete" data-toggle="modal" data-target="#deleteConfirmModel" ng-click="deleteConfirm(video)">Delete</a></li>
+            </ul>
+          </div>
+          <h4 class="video_title"><a ng-click="viewVideo(video)" title="video title | urappzone">{{video.title}}</a></h4>
+          <p class="video_description">{{video.description}}</p>
+
+        </div>
+      </div>
+      <div class="alert alert-warning" ng-show="userLibVideosReady && !userLibVideos.length" ng-cloak>
+        <p>You haven't added any videos to your library.</p>
+      </div>
+    </div>
+  </div> 
+
+</div>

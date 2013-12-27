@@ -1,4 +1,4 @@
-.add_video_doc{
+.add_new_video{
   padding: 30px 35px;
   margin: 6px 6px 6px 0;
   border: dashed 2px silver;
@@ -7,6 +7,70 @@
   text-transform: uppercase;
   text-decoration: none !important;
   cursor: pointer;
+}
+.video_brick{
+  padding: 0;
+  display: inline-block;
+  a {
+    cursor: pointer;
+  }
+  .video_content{
+    border: solid 1px silver;
+    margin: 5px 4px;
+    .dropdown{
+      padding-top: 9px;
+    }
+    .btn-play{
+     position: absolute;
+     display: block;
+     background-image: url(/img/icons/play_btn.png);
+     background-repeat: no-repeat;
+     top: 24%;
+     left: 43%;
+     background-position: center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 40px;
+     width: 40px;
+   }
+  }
+  .thumbnail{
+    width: 100%;
+    height: 160px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .video_title, .video_description{
+    padding-left: 5px;
+    text-transform: capitalize;
+    width: 233px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .video_title{
+    white-space: nowrap;
+    width: 90%;
+    float: left;
+  }
+  .video_description{
+    height: 3em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .menu-arrow{
+    width: 22px;
+    margin-left: 3px;
+  }
+}
+
+.alpha-order{
+  padding-top: 8px;
+  a{
+    cursor: pointer;
+  }
 }
 
 .video_main{
@@ -25,7 +89,7 @@
   }
 }
 
-#newVideoModal {
+#newVideoModal, #editVideoModal{
   .modal-dialog{
     width: 750px;
   }
@@ -36,8 +100,38 @@
     padding-bottom: 8px;
   }
 }
+.video_info{
+  .img-thumbnail{
+    height: 161px;
+  }
+}
+
+#videoViewModal{
+  .video_view_ifr{
+    width: 100%;
+  }
+  .modal-dialog{
+    width: 60%;
+  }
+   .modal-dialog {
+    height: 70%;
+    .modal-content{
+      height: 100%;
+      .modal-body{
+        height: 100%;
+        padding: 5px;
+        .video_view_ifr{
+          min-height: 100%;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 768px) {
+  .video_brick .video_content{
+    width: 250px;
+  }
   #newVideoModal .modal-dialog{
     width: 100% !important;
     margin: 0;

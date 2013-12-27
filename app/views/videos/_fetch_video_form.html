@@ -1,4 +1,4 @@
-<div class="form-horizontal">
+<div class="form-horizontal" ng-hide="processing">
   <div class="form-group">
     <label for="videoLinkInput" class="col-sm-2 control-label">
       Video link:
@@ -11,9 +11,50 @@
     </div>
   </div>
 
-  <div class="video_info">
-    <input type="text" ng-model="processingVideo.title">
-    <textarea  cols="30" rows="3" ng-model="processingVideo.description"></textarea>
-    <img ng-src="{{processingVideo.thumbnail_small}}" alt="video thumbnail | urappzone">
+  <div class="video_info" ng-show="!!processingVideo" ng-cloak>
+
+    <div class="form-group">
+      <label for="videoTitle" class="col-sm-2 control-label">
+        Title:
+      </label>
+      <div class="col-sm-9">
+      <input type="text" class="form-control" id="videoTitle" ng-model="processingVideo.title">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="videoDescription" class="col-sm-2 control-label">
+        Description:
+      </label>
+      <div class="col-sm-9">
+        <textarea  class="form-control" rows="5" id="videoDescription" ng-model="processingVideo.description"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="videoTitle" class="col-sm-2 control-label">
+        Preview:
+      </label>
+      <div class="col-sm-9">
+        <img class="img-thumbnail" ng-src="{{processingVideo.thumbnail_medium}}" alt="video thumbnail | urappzone">
+      </div>
+    </div>
+
+    <%if user_signed_in?%>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-7">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="processingVideo.to_public" ng-checked="processingVideo.to_public"> Add to public library
+          </label>
+        </div>
+      </div>
+    </div>
+    <%end%>
+
   </div>
+</div>
+
+<div class="text-center" ng-show="processing">
+  <img src="/img/icons/processing.gif" alt="processing">
 </div>

@@ -28,6 +28,7 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
   var fetchUserData = function(){
     userDocs.getUserDocs().success(function(data, status){
       $scope.userLibDocs = data;
+      $scope.userLibDocsReady = true;
     }).error(function(data, status){
     });
   };
@@ -137,11 +138,3 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
 
 }]);
 
-$(function(){
-  var searchBtn = $("#searchBtn"),
-      searchBar = $('#searchBar');
-
-  searchBtn.on('click', function(e){
-    searchBar.focus();
-  });
-});

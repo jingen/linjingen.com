@@ -23,8 +23,13 @@ Linjingen::Application.routes.draw do
   post "crocodoc_webhook"    => "documents#webhook"
   get "documents/:croc_uuid" => "documents#crocodoc_session"
 
-  get "video_library" => "videos#index"
+  get "video_library"       => "videos#index"
+  get "public_videos"       => "videos#public_videos"
+  get "user_videos"         => "videos#user_videos"
   post "process_video_link" => "videos#process_link"
+  post "add_video"          => "videos#create"
+  post "update_video"       => "videos#update"
+  post "delete_video"       => "videos#destroy"
 
   get "spell_checker" => "words#index"
   post "word_check"   => "words#check"
