@@ -7,7 +7,25 @@
     width: 200px;
   }
 }
+//sphere
+.jumbotron{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.landing_main{
+  padding-top: 25px;
+}
 
+@media (max-width: 996px){
+  .landing_main{
+    width: 100%;
+  }
+  .landing_sphere{
+    display: none;
+  }
+}
+
+//end
 #jingen-lin-landing{
   .landing-img{
     width: 100%;
@@ -104,7 +122,7 @@
 }
 
 .sign_in_with_facebook{
-  height: 46px;
+  height: 48px;
 }
 
 .text-capitalize{

@@ -1,3 +1,4 @@
+//= require earth-sphere
 //= require_self
 //= require home_controller
 var app = angular.module('jl', []);
@@ -15,6 +16,10 @@ $(document).ready(function(){
   $('.scrollup').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 600);
     return false;
+  });
+
+  $('#sphere').earth3d({
+    dragElement: $('#locations')
   });
 });
 
