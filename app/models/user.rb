@@ -62,6 +62,10 @@ class User
   # field :authentication_token, :type => String
 
   # protected
+  def self.author
+    where(email: "linjingen@hotmail.com").first
+  end
+  
   def set_unique_id
     self.set(:unique_id => User.count)
   end

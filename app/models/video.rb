@@ -43,7 +43,8 @@ class Video
       title: self.title,
       description: self.description,
       thumbnail_medium: self.thumbnail_medium,
-      embed_url: self.embed_url
+      embed_url: self.embed_url,
+      to_public: self.to_public
     }
   end
 end
