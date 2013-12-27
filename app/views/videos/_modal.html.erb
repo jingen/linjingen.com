@@ -9,6 +9,9 @@
       <%=render "fetch_video_form"%>
       </div>
       <div class="modal-footer">
+        <div class="alert alert-danger video_link_invalid" ng-show="invalidError" ng-cloak>
+          Sorry, the video link is invalid.
+        </div>
         <a class="btn btn-primary" ng-click="addVideo()" ng-disabled="!processingVideo">Add to library</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -37,6 +40,9 @@
       <%=render "fetch_video_form"%>
       </div>
       <div class="modal-footer">
+        <div class="alert alert-danger video_link_invalid" ng-show="invalidError" ng-cloak>
+          Sorry, the video link is invalid.
+        </div>
         <a class="btn btn-primary" ng-click="updateVideo()" ng-disabled="!processingVideo">Update</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>

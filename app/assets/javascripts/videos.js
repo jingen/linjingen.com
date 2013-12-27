@@ -43,12 +43,19 @@ app.controller("VideoLibrary", ["$scope","$http", "$timeout", "processVideoLink"
   var youtubeRegex = new RegExp('.*youtube\\.com.*\\?v=.{11}', 'i');
   var vimeoRegex = new RegExp('.*vimeo\\.com.*\\/\\d+', 'i');
   $scope.fetchVideo = function(){
+    $scope.invalidError = false;
     if(youtubeRegex.test($scope.videoLink) || vimeoRegex.test($scope.videoLink)){
+      $scope.loading = true;
       processVideoLink.process($scope.videoLink).success(function(data, status){
+        $scope.loading = false;
         $scope.processingVideo = data;
       }).error(function(data,status) {
+        $scope.loading = false;
         $scope.processingVideo = "";
+        $scope.invalidError = true;
       });
+    }else{
+      $scope.invalidError = true;
     }
   };
 
