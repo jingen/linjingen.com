@@ -192,3 +192,26 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+@media (max-width: 500px){
+  .welcome-title{
+    font-size: 35px;
+  }
+  .welcome-text{
+    font-size: 14px;
+  }
+  .welcome-signup-btn, .welcome-signup-facebook{
+    display: block;
+  }
+  .welcome-signup-btn{
+    width: 257px;
+  }
+}
+
+@media (max-width: 360px){
+  .welcome-title{
+    span {
+      display: none;
+    }
+  }
+}

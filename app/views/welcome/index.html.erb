@@ -4,18 +4,14 @@
   <div class="container">
 
     <div class="row">
+
       <div class="col-xs-8 landing_main">
-
-        <h2 class="welcome-title cursive">Welcome to "Ur App Zone"!</h2>
-        <p>Get an account for better experience. It’s free and always will be.</p>
-        <p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup-modal" title="urappzone sign up">Sign up now &raquo;</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook"><img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook"></a></p>
-
+        <h2 class="welcome-title cursive"><span>Welcome to </span>"Ur App Zone"!</h2>
+        <p class="welcome-text">Get an account for better experience. It’s free and always will be.</p>
+        <p><a class="btn btn-primary btn-lg welcome-signup-btn" data-toggle="modal" data-target="#signup-modal" title="urappzone sign up">Sign up now &raquo;</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> class="welcome-signup-facebook" title="sign in Ur App Zone with facebook"><img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook"></a></p>
       </div>
 
-      <div class="col-xs-4 pull-right landing_sphere">
-        <canvas id="sphere" width="250" height="250"></canvas>
-        <div id="locations"></div>
-      </div>
+      <%=render "earth_sphere"%>
     </div>
 
   </div>
