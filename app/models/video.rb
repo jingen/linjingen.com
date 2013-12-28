@@ -21,7 +21,7 @@ class Video
   scope :public_videos, where({to_public: true, temporary: false})
 
   def self.new_video(video_link)
-    video_info = VideoInfo.new(video_link)
+    video_info = VideoInfo.new(video_link, referer: "http://www.urappzone.com", user_agent: "urappzone")
     create ({
           video_id:         video_info.video_id, 
           provider:         video_info.provider,
