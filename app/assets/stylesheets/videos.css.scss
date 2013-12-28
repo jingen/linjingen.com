@@ -154,7 +154,16 @@
     }
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 500px){
+  #videoViewModal .modal-dialog {
+    height: 88%;
+  }
+}
+@media (max-width: 400px) {
+  #videoViewModal .modal-dialog {
+    height: 50%;
+  }
+
   .video_brick .video_content{
     padding-left: 0;
     padding-right: 0;
