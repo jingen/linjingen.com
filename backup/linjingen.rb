@@ -115,3 +115,13 @@ rails g controller images
 # video.thumbnail_large  => "http://i.ytimg.com/vi/mZqGqE0D0n4/hqdefault.jpg"
 # video.embed_url        => "http://www.youtube.com/embed/mZqGqE0D0n4"
 # video.embed_code       => "'<iframe src="http://www.youtube.com/embed/mZqGqE0D0n4" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'"
+
+app.directive('focusMe', ["$timeout", function ($timeout) {    
+    return {    
+        link: function (scope, element, attrs, model) {                
+            $timeout(function () {
+                element[0].focus();
+            });
+        }
+    };
+}]);

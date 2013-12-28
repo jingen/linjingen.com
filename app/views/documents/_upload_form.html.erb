@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="docTitle" class="col-sm-3 control-label">Title</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control" id="docTitle" placeholder="Enter title..." ng-model="<%=doc%>.title" ng-change="<%=doc%>ReadyCheck()">
+      <input type="text" class="form-control" id="docTitle" placeholder="Enter title..." ng-model="<%=doc%>.title" ng-change="<%=doc%>ReadyCheck()" autofocus="autofocus">
     </div>
     <div class="col-sm-2 no_left_padding" ng-hide="<%=doc%>.title">
       <p class="text-danger">*require</p>

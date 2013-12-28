@@ -137,4 +137,3 @@ app.controller("DocLibrary", ["$scope", "$http", "$upload", "userDocs", "publicD
   };
 
 }]);
-
