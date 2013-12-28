@@ -87,7 +87,7 @@
 
 @media (max-width: 768px){
   #documentView .modal-dialog{
-    width: 100% !important;
+    width: 95% !important;
   }
   .doc_main {
     .alert-info{
@@ -97,20 +97,10 @@
       width: 100%;
       a{
         display: block;
+        padding: 7px;
+        width: 260px;
       }
     }
-  }
-}
-
-@media (max-width: 500px) {
-  .doc_brick .doc_content{
-    margin-left: 85px;
-  }
-}
-
-@media (max-width: 450px) {
-  .doc_brick .doc_content{
-    margin-left: 12px;
   }
 }
 

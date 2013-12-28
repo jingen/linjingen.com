@@ -128,13 +128,17 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 798px) {
   .video_brick .video_content{
-    width: 250px;
+    padding-left: 15%;
+    padding-right: 15%;
   }
   #newVideoModal .modal-dialog{
-    width: 100% !important;
+    width: 98% !important;
     margin: 0;
+  }
+  #videoViewModal .modal-dialog{
+    width: 96% !important;
   }
   .video_main {
     .alert-info{
@@ -144,8 +148,16 @@
       width: 100%;
       a{
         display: block;
+        padding: 7px;
+        width: 260px;
       }
     }
+  }
+}
+@media (max-width: 450px) {
+  .video_brick .video_content{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
