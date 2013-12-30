@@ -203,8 +203,17 @@
   .welcome-signup-btn, .welcome-signup-facebook{
     display: block;
   }
-  .welcome-signup-btn{
-    width: 257px;
+  .sign_in_with_facebook{
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .author {
+    margin-left: -15px;
+    .col-sm-2, .col-sm-9 h2 {
+      text-align: center;
+    }
   }
 }
 
