@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    logger.debug request.original_url
-    logger.debug params
     if should_store_url?
       session[:user_return_to] = request.original_url
     end
