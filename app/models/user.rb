@@ -65,6 +65,10 @@ class User
   def self.author
     where(email: "linjingen@hotmail.com").first
   end
+
+  def self.admin
+    where(email: "urappzone@gmail.com").first
+  end
   
   def set_unique_id
     self.set(:unique_id => User.count)

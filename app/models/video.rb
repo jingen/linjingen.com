@@ -47,5 +47,6 @@ class Video
       to_public: self.to_public
     }
   end
+
 end
 

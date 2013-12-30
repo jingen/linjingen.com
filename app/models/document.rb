@@ -42,7 +42,7 @@ class Document
     Crocodoc::Document.delete(self.croc_uuid)
     self.destroy
   end
-
+  
   protected
 
   def upload_to_crocodoc

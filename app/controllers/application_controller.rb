@@ -34,4 +34,13 @@ class ApplicationController < ActionController::Base
     action     = params[:action]
     controller == "welcome" || (action == "index" && (controller == "documents" || controller == "videos" || controller == "words" || controller == "images"))
   end
+
+  def set_user(resource)
+   if user_signed_in?
+      resource.user = current_user 
+    else
+      resource.user = User.admin
+    end
+  end
+
 end

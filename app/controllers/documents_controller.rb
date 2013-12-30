@@ -67,7 +67,7 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
-    @document.user = current_user if user_signed_in?
+    set_user(@document)
     if @document.save
       render json: @document, status: :ok
     else

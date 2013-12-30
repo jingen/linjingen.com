@@ -29,7 +29,7 @@ class VideosController < ApplicationController
 
   def create 
     @new_video = processing_video
-    @new_video.user = current_user if user_signed_in?
+    set_user(@new_video)
     if @new_video.update_attributes(video_params)
       render :json => true, status: :ok
     else
