@@ -59,6 +59,7 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk'
 gem "crocodoc"
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin-oauth2'
 gem "video_info"
 
 group :development do

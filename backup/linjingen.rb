@@ -125,3 +125,14 @@ app.directive('focusMe', ["$timeout", function ($timeout) {
         }
     };
 }]);
+
+linkedin.com
+
+API Key:
+77iinzxsvoosyu
+Secret Key:
+zIDDxUh6EyB3ibKm
+OAuth User Token:
+c02c4488-dc22-4fe1-9cf5-c0fa0cbefde7
+OAuth User Secret:
+6d0ff3c2-5aaf-4f02-b188-db89be4e7825
