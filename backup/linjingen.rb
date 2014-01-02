@@ -136,3 +136,6 @@ OAuth User Token:
 c02c4488-dc22-4fe1-9cf5-c0fa0cbefde7
 OAuth User Secret:
 6d0ff3c2-5aaf-4f02-b188-db89be4e7825
+
+linkedin_key: "77iinzxsvoosyu"
+linkedin_secret: "zIDDxUh6EyB3ibKm"
