@@ -17,7 +17,11 @@
 .btn-login{
   height: 39px;
 }
-.sign_in_with_facebook, .sign_in_with_linkedin{
-  height: 34px;
+.sign_in_with_facebook{
+  height: 36px;
   margin-left: 24px;
+}
+.sign_in_with_linkedin{
+  height: 34px;
+  border-radius: 5px;
 }
