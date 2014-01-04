@@ -30,10 +30,8 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.isActive = function(route){
-    console.log(route);
     return route == window.location.pathname;
   };
-
 }]);
 
 app.controller('UserController', ['$scope', '$http', function($scope, $http){
