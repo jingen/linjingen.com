@@ -2,6 +2,6 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def about_me
+  def about_us
   end
 end

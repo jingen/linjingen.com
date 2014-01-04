@@ -16,16 +16,3 @@
 //= require extend-bootstrap
 //= require angular
 //= require_self
-
-$(function(){
-  if(window.location.pathname == "/"){
-    $('#home').addClass('active');
-    $('#aboutme').removeClass('active');
-  }else if(window.location.pathname == "/aboutme"){
-    $('#aboutme').addClass('active');
-    $('#home').removeClass('active');
-  }else{
-    $('#home').removeClass('active');
-    $('#aboutme').removeClass('active');
-  }
-});

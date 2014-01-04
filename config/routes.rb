@@ -9,9 +9,7 @@ Linjingen::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'aboutus'   => "welcome#about_me"
-  get 'aboutme'   => "welcome#about_me"
-  get 'jingenlin' => "welcome#about_me"
+  get 'aboutus'   => "welcome#about_us"
   match 'avatar', to: 'users#avatar', via: [:get, :post]
 
   get "doc_library"          => "documents#index"
