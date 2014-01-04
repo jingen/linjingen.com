@@ -20,3 +20,4 @@
 /vendor/bundle
 /config/application.yml
 /public/uploads/
+/public/img/backup/

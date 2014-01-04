@@ -2,7 +2,7 @@
 <%=javascript "videos"%>
 <%content_for(:title) {"Video Library | urappzone gives you private video library online."}%>
 <%content_for(:meta) do%>
-<meta name="description" content="Your online video library, organize, save and share favorite videos - all on urappzone"> 
+<meta name="description" content="Your private video library online, organize, save and share favorite videos | urappzone"> 
 <%end%>
 
 <div class="container video_main" ng-controller="VideoLibrary">
@@ -10,7 +10,17 @@
     <div class="alert alert-warning">
       <p>
         Get an account to build your online video library.
-        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> class="btn btn-primary btn-xs" title="sign in Ur App Zone with facebook">Sign up with facebook</a>
+        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a>
+        <span class="fantasy"> Or sign in with</span>
+        <a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook">
+          <img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook">
+        </a>
+        <a href=<%=user_omniauth_authorize_path(:linkedin)%> title="sign in Ur App Zone with linkedin">
+          <img class="sign_in_with_linkedin" src="/img/icons/sign-in-with-linkedin-icon.png" alt="sign in Ur App Zone with linkedin">
+        </a>
+        <a href=<%=user_omniauth_authorize_path(:google_oauth2)%> title="sign in Ur App Zone with google">
+          <img class="sign_in_with_google" src="/img/icons/sign-in-with-google-icon.png" alt="sign in Ur App Zone with google">
+        </a>
       </p>
     </div>
   <%end%>

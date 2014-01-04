@@ -122,12 +122,14 @@
 }
 
 .sign_in_with_facebook{
-  height: 48px;
+  height: 47px;
 }
-.sign_in_with_linkedin{
-  height: 48px;
-  padding-top: 2px;
+.sign_in_with_linkedin, .sign_in_with_google{
+  height: 45px;
   border-radius: 6px;
+}
+.welcome-signup-social{
+  display: inline;
 }
 
 .text-capitalize{
@@ -207,9 +209,6 @@
   }
   .welcome-signup-btn, .welcome-signup-social{
     display: block;
-  }
-  .sign_in_with_facebook, .sign_in_with_linkedin{
-    width: 100%;
   }
 }
 

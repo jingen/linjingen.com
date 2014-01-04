@@ -143,6 +143,9 @@ GEM
       rack
     omniauth-facebook (1.5.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-google-oauth2 (0.2.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-linkedin-oauth2 (0.1.5)
       omniauth (~> 1.0)
       omniauth-oauth2
@@ -252,6 +255,7 @@ DEPENDENCIES
   mongoid!
   mongoid-paperclip
   omniauth-facebook
+  omniauth-google-oauth2
   omniauth-linkedin-oauth2
   quiet_assets
   rails (= 4.0.0)
