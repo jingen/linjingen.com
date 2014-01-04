@@ -140,16 +140,23 @@
   #videoViewModal .modal-dialog{
     width: 96% !important;
   }
+}
+@media (max-width: 768px) {
   .video_main {
     .alert-info{
       width: 100% !important;
     }
     .alert-warning {
       width: 100%;
-      a{
+      .btn-signup, .signup-with-social{
         display: block;
+        margin-top: 10px;
+        text-align: center; 
+      }
+      .btn-signup{
         padding: 7px;
-        width: 260px;
+        width: 70%;
+        margin-left: 15%;
       }
     }
   }

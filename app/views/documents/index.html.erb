@@ -7,22 +7,22 @@
 
 <div class="container doc_main" ng-controller="DocLibrary">
   <%if !user_signed_in? %>
-    <div class="alert alert-warning">
-      <p>
+    <div class="alert alert-warning text-center">
         Get an account to build your online document library.
-        <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signup-modal">Sign up now</a>
-                <span class="fantasy"> Or sign in with</span>
-        <a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook">
-          <img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook">
-        </a>
-        <a href=<%=user_omniauth_authorize_path(:linkedin)%> title="sign in Ur App Zone with linkedin">
-          <img class="sign_in_with_linkedin" src="/img/icons/sign-in-with-linkedin-icon.png" alt="sign in Ur App Zone with linkedin">
-        </a>
-        <a href=<%=user_omniauth_authorize_path(:google_oauth2)%> title="sign in Ur App Zone with google">
-          <img class="sign_in_with_google" src="/img/icons/sign-in-with-google-icon.png" alt="sign in Ur App Zone with google">
-        </a>
+        <a class="btn btn-primary btn-xs btn-signup" data-toggle="modal" data-target="#signup-modal">Sign up now</a>
 
-      </p>
+        <div class="signup-with-social">
+          <span class="fantasy"> Or sign in with</span>
+          <a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook">
+            <img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook">
+          </a>
+          <a href=<%=user_omniauth_authorize_path(:linkedin)%> title="sign in Ur App Zone with linkedin">
+            <img class="sign_in_with_linkedin" src="/img/icons/sign-in-with-linkedin-icon.png" alt="sign in Ur App Zone with linkedin">
+          </a>
+          <a href=<%=user_omniauth_authorize_path(:google_oauth2)%> title="sign in Ur App Zone with google">
+            <img class="sign_in_with_google" src="/img/icons/sign-in-with-google-icon.png" alt="sign in Ur App Zone with google">
+          </a>
+        </div>
     </div>
   <%end%>
   <div class="well well-lg">

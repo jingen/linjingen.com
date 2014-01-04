@@ -95,10 +95,15 @@
     }
     .alert-warning {
       width: 100%;
-      a{
+      .btn-signup, .signup-with-social{
         display: block;
+        text-align: center; 
+        margin-top: 10px;
+      }
+      .btn-signup{
         padding: 7px;
-        width: 260px;
+        width: 70%;
+        margin-left: 15%;
       }
     }
   }
