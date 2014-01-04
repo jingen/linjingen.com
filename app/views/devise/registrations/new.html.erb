@@ -39,16 +39,19 @@
     </div>
     
     <div class="col-sm-offset-2">
-      <input class="btn btn-primary btn-login" name="commit" type="submit" value="Sign up">
+      <input class="btn btn-primary" name="commit" type="submit" value="Sign up">
       <span class="fantasy"> Or </span>
       <a href=<%=user_omniauth_authorize_path(:facebook)%> title="sign in Ur App Zone with facebook">
-        <img src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook">
+        <img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook">
+      </a>
+      <a href=<%=user_omniauth_authorize_path(:linkedin)%> title="sign in Ur App Zone with linkedin">
+        <img class="sign_in_with_linkedin" src="/img/icons/sign-in-with-linkedin-icon.png" alt="sign in Ur App Zone with linkedin">
       </a>
     </div>
   </form>
   <br>
   <div class="col-sm-offset-2">
-    <a class="btn btn-primary btn-login" href="/users/sign_in">Go to login</a><br />
+    <a class="btn btn-primary" href="/users/sign_in">Go to login</a><br />
   </div>
 
   <hr>

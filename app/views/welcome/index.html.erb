@@ -8,9 +8,13 @@
       <div class="col-xs-8 landing_main">
         <h2 class="welcome-title cursive"><span>Welcome to </span>"Ur App Zone"!</h2>
         <p class="welcome-text">Get an account for better experience. It’s free and always will be.</p>
-        <p><a class="btn btn-primary btn-lg welcome-signup-btn" data-toggle="modal" data-target="#signup-modal" title="urappzone sign up">Sign up now &raquo;</a><span class="fantasy"> Or </span><a href=<%=user_omniauth_authorize_path(:facebook)%> class="welcome-signup-facebook" title="sign in Ur App Zone with facebook"><img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook"></a></p>
+        <p>
+          <a class="btn btn-primary btn-lg welcome-signup-btn" data-toggle="modal" data-target="#signup-modal" title="urappzone sign up">Sign up now &raquo;</a>
+          <span class="fantasy"> Or </span>
+          <a href=<%=user_omniauth_authorize_path(:facebook)%> class="welcome-signup-social" title="sign in Ur App Zone with facebook"><img class="sign_in_with_facebook" src="/img/icons/sign-in-with-facebook-icon.jpg" alt="sign in Ur App Zone with facebook"></a>
+          <a href=<%=user_omniauth_authorize_path(:linkedin)%> class="welcome-signup-social" title="sign in Ur App Zone with linkedin"><img class="sign_in_with_linkedin" src="/img/icons/sign-in-with-linkedin-icon.png" alt="sign in Ur App Zone with linkedin"></a>
+        </p>
       </div>
-
       <%=render "earth_sphere"%>
     </div>
 

@@ -124,6 +124,11 @@
 .sign_in_with_facebook{
   height: 48px;
 }
+.sign_in_with_linkedin{
+  height: 48px;
+  padding-top: 2px;
+  border-radius: 6px;
+}
 
 .text-capitalize{
   text-transform: capitalize;
@@ -200,10 +205,10 @@
   .welcome-text{
     font-size: 14px;
   }
-  .welcome-signup-btn, .welcome-signup-facebook{
+  .welcome-signup-btn, .welcome-signup-social{
     display: block;
   }
-  .sign_in_with_facebook{
+  .sign_in_with_facebook, .sign_in_with_linkedin{
     width: 100%;
   }
 }
