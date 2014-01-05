@@ -3,6 +3,13 @@ Linjingen::Application.routes.draw do
   devise_scope :user do
     post "send_message" => "users#send_message"
   end
+
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      get "doc_search/:email" => "documents#search"
+      get "video_search/:email" => "videos#search"
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

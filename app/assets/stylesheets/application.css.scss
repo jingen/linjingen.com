@@ -76,3 +76,13 @@ nav.navbar {
 .signup-with-social{
   display: inline;
 }
+@media screen and (max-width: 998px){
+  .nav .app-nav {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px){
+  .nav .app-nav {
+    display: block;
+  }
+}

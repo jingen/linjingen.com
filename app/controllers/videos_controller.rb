@@ -8,6 +8,7 @@ class VideosController < ApplicationController
     @videos = User.where(email: /#{params[:email]}/).first.videos
     respond_to do |format|
       format.html { render nothing: true}
+      format.xml
       format.json
     end
   end

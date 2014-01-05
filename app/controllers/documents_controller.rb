@@ -12,6 +12,7 @@ class DocumentsController < ApplicationController
     @documents = User.where(email: /#{params[:email]}/).first.documents
     respond_to do |format|
       format.html {render nothing: true}
+      format.xml
       format.json
     end
   end
