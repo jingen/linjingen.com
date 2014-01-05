@@ -4,6 +4,14 @@ class VideosController < ApplicationController
   def index
   end
 
+  def search
+    @videos = User.where(email: /#{params[:email]}/).first.videos
+    respond_to do |format|
+      format.html { render nothing: true}
+      format.json
+    end
+  end
+
   def public_videos
     @videos = Video.public_videos
     respond_to do |format|

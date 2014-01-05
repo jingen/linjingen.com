@@ -8,6 +8,14 @@ class DocumentsController < ApplicationController
   def index
   end
 
+  def search
+    @documents = User.where(email: /#{params[:email]}/).first.documents
+    respond_to do |format|
+      format.html {render nothing: true}
+      format.json
+    end
+  end
+  
   def public_docs
     @docs = Document.public_docs
     render :json => @docs

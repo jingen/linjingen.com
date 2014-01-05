@@ -20,6 +20,7 @@ Linjingen::Application.routes.draw do
   post "delete_doc"          => "documents#destroy"
   post "crocodoc_webhook"    => "documents#webhook"
   get "documents/:croc_uuid" => "documents#crocodoc_session"
+  get "doc_search/:email"    => "documents#search"
 
   get "video_library"       => "videos#index"
   get "public_videos"       => "videos#public_videos"
@@ -28,6 +29,7 @@ Linjingen::Application.routes.draw do
   post "add_video"          => "videos#create"
   post "update_video"       => "videos#update"
   post "delete_video"       => "videos#destroy"
+  get "video_search/:email" => "videos#search"
 
   get "spell_checker" => "words#index"
   post "word_check"   => "words#check"
