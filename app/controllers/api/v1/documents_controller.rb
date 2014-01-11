@@ -3,11 +3,10 @@ module Api
     class DocumentsController < ApplicationController
       def search
         @documents = User.where(email: /#{params[:email]}/).first.documents
-        # render json: @documents
         respond_to do |format|
           format.html {render nothing: true}
-          format.json {render 'documents/search'}
-          # format.json {render 'documents/search.json.jbuilder'}
+          format.xml { render 'documents/search' }
+          format.json { render 'documents/search' }
         end
       end
     end
