@@ -75,10 +75,15 @@ class User
   end
 
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
+    exist_user = where(email: auth.info.email)
+    if exist_user.exists?
+      exist_user.first
+    else
+      create(
+        provider: auth.provider,
+        uid:      auth.uid,
+        email:    auth.info.email
+      )
     end
   end
 
