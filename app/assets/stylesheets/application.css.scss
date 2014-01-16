@@ -10,6 +10,7 @@
  *
  *= require_self
  */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
 $navbar-inverse-bg: #166D8C;
 $navbar-inverse-brand-color: white;
 $navbar-inverse-link-color: rgb(205, 191, 227);
@@ -33,9 +34,6 @@ nav.navbar {
   color: white !important;
   padding: 6px 16px !important;
   margin-top: 8px;
-}
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
 }
 .nav-avatar{
   max-width: 20px;
