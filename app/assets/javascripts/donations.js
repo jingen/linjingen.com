@@ -16,6 +16,7 @@ app.controller("Donation", ['$scope', '$http', '$timeout', 'donationHistory', fu
   $scope.donate = function(){
     $http.post('create_donation', {"donation":$scope.donation}).success(function(data){
       $scope.donateSuccess = true;
+      $scope.fetchDonations();
       $timeout(function(){
         $scope.donateSuccess = false;
       }, 2000);
