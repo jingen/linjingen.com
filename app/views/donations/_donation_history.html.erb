@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Donation history</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-1 alpha-order">
+      <span><a ng-class="{clicked: !reverse}" ng-click="reverse=false">A-Z</a> | <a ng-class="{clicked: reverse}" ng-click="reverse=true">Z-A</a></span>
+    </div>
+    <div class="input-group col-sm-6">
+      <input type="search" class="form-control" ng-model="keywords" id="searchBar">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="searchBtn"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+    <hr>
+    <div class="docs_container">
+      <div class="col-xs-12 col-sm-6 col-md-3 doc_brick" ng-repeat="donation in donations| filter:keywords |orderBy: 'title':reverse" ng-cloak>
+        <div class="doc_content">
+          <h4 class="doc_title"><a ng-click="docView(donation)" title="document title">Title: {{donation.title}}</a></h4>
+          <p class="doc_description">Description: {{donation.description}}</p>
+          <p class="doc_description">Type: {{donation.type}}</p>
+          <a class="btn btn-primary" ng-show="donation.type == 'experience'" ng-click="showInMap(donation.item)">show location</a>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>

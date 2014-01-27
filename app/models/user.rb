@@ -11,6 +11,7 @@ class User
 
   has_many :documents
   has_many :videos
+  has_many :donations
   
   ## Database authenticatable
   field :email,              :type => String, :default => ""

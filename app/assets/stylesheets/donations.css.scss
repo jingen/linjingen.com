@@ -1,0 +1,76 @@
+.donation_main{
+  .well{
+    margin-top: 15px;
+  }
+
+  .alert{
+    margin-top: 12px;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+}
+
+.alpha-order{
+  padding-top: 8px;
+  a{
+    cursor: pointer;
+  }
+}
+
+#showLocation{
+  .modal-dialog{
+    width: 850px;
+  }
+}
+
+.sign_in_with_facebook{
+  height: 26px;
+}
+.sign_in_with_linkedin, .sign_in_with_google{
+  height: 25px;
+  border-radius: 5px;
+}
+
+.doc_brick{
+  padding: 0;
+  display: inline-block;
+  a {
+    cursor: pointer;
+  }
+  .doc_content{
+    border: solid 1px silver;
+    padding: 10px 10px;
+    margin: 5px;
+    height: 200px;
+    .dropdown{
+      padding-top: 9px;
+    }
+  }
+  .thumbnail{
+    width: 200px;
+    height: 258px;
+    display: inline-block;
+  }
+  .doc_title, .doc_description{
+    padding-left: 6px;
+    text-transform: capitalize;
+    width: 233px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .doc_title{
+    white-space: nowrap;
+    width: 91%;
+    height: 1em;
+    float: left;
+  }
+  .doc_description{
+    height: 3em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .menu-arrow{
+    width: 22px;
+  }
+}

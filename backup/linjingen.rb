@@ -139,3 +139,31 @@ OAuth User Secret:
 
 linkedin_key: "77iinzxsvoosyu"
 linkedin_secret: "zIDDxUh6EyB3ibKm"
+
+
+# charitybuzz.com
+rails g model donation
+rails g model physical_item
+rails g model voucher
+rails g model experience
+
+rails g controller donations index
+
+in index.html.erb
+<%=stylesheet "app_donation"%>
+<%=javascript "donations"%>
+
+in production.rb
+precompile += %w('app_donation.css donations.js')
+# in app_donation.css
+/**
+*= require_self
+*= require donations
+*/ 
+# in donation.js
+//= require_self
+//= require home_controller
+var app = angular.module('jl', []);
+app.controller("Donation", ['$scope', '$http', function($scope, $http){
+
+}]);

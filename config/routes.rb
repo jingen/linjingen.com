@@ -43,6 +43,11 @@ Linjingen::Application.routes.draw do
 
   get "image_resizer" => "images#index"
   post "image_resize" => "images#create"
+
+  get "donation"         => "donations#index"
+  post "create_donation" => "donations#create"
+  get "donation_history" => "donations#donation_history"
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

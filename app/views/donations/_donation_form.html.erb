@@ -1,0 +1,42 @@
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong>Make a donation</strong></div>
+      <div class="panel-body form-horizontal">
+        <div class="form-group">
+          <label for="title" class="col-xs-2 control-label">Title:</label>
+          <div class="col-xs-3">
+              <input class="form-control" type="text" id="title" ng-model="donation.title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="col-xs-2 control-label">Description:</label>
+          <div class="col-xs-5">
+            <textarea class="form-control" rows="5" id="description" ng-model="donation.description"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="type" class="col-xs-2 control-label">Donation type:</label>
+          <div class="col-xs-5">
+            <select class="form-control" ng-model="donation.type">
+              <option value=""></option>
+              <option value="physical_item">Physical Item</option>
+              <option value="voucher">Voucher</option>
+              <option value="experience">Experience</option>
+            </select>
+          </div>
+        </div>
+
+        <%=render "donation_type" %>
+
+        <div class="form-group">
+          <div class="col-xs-offset-2 col-xs-10">
+            <button class="btn btn-primary" ng-click="donate()">Donate</button>
+          </div>
+        </div>
+
+        <div class="col-xs-offset-2 col-xs-4 alert alert-success" ng-show="donateSuccess" ng-cloak>
+          <p>Successfully made the donation!</p>
+        </div>
+      </div>
+    </div>

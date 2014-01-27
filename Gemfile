@@ -62,6 +62,8 @@ gem "video_info"
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
 gem "omniauth-google-oauth2"
+gem "geocoder"
+gem 'gmaps4rails'
 
 group :development do
   gem 'hirb'

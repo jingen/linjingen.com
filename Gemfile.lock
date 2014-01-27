@@ -99,6 +99,8 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    geocoder (1.1.9)
+    gmaps4rails (2.1.1)
     hashie (2.0.5)
     hike (1.2.3)
     hirb (0.7.1)
@@ -248,6 +250,8 @@ DEPENDENCIES
   crocodoc
   debugger
   devise
+  geocoder
+  gmaps4rails
   hirb
   jbuilder (~> 1.2)
   jquery-rails
