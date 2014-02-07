@@ -71,5 +71,5 @@ group :development do
   gem 'quiet_assets'
   gem 'thin'
   gem 'methodfinder'
-  gem 'debugger'
+  gem 'debugger', '1.6.5'
 end
