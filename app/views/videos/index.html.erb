@@ -1,8 +1,8 @@
 <%=stylesheet "app_video_library"%>
 <%=javascript "videos"%>
-<%content_for(:title) {"Video Library | Your private video library online on urappzone.com"}%>
+<%content_for(:title) {"Video Zone | Own your video zone on urappzone.com"}%>
 <%content_for(:meta) do%>
-<meta name="description" content="Your private video library online -organize, save and share favorite videos on urappzone.com"> 
+<meta name="description" content="Create your own video zone online - collect all your favorite videos on urappzone.com"> 
 <%end%>
 
 <div class="container video_main" ng-controller="VideoLibrary">
@@ -10,6 +10,9 @@
     <div class="alert alert-warning text-center">
       Get an account to build your online video library.
       <a class="btn btn-primary btn-xs btn-signup" data-toggle="modal" data-target="#signup-modal">Sign up now</a>
+
+      <span class="fantasy">Or</span>
+      <a class="btn btn-primary btn-xs btn-signup" data-toggle="modal" data-target="#login-modal">Login</a>
 
       <div class="signup-with-social">
         <span class="fantasy"> Or sign in with</span>
